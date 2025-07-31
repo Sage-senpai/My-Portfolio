@@ -19,6 +19,7 @@ function Gallery() {
           <img src="/projects.jpg" alt="Preview 1" />
           <img src="/smart-irigation-system.jpg" alt="Preview 2" />
           <img src="/about.jpg" alt="Preview 3" />
+           <img src="/sui-meetup-group.jpg" alt="Preview 4" />
         </div>
       </section>
 
@@ -37,10 +38,15 @@ function Gallery() {
             <img src="/bitcoin-pizza-day.jpg" alt="Event 3" />
             <p>Attended World Bitcoin Pizza Day</p>
           </div>
+          <div className="event-card" data-aos="fade-left">
+            <img src="/sui-meetup.jpg" alt="Event 4" />
+            <p>Attended Sui-Move Developer Workshop <br/>
+            And the Nsukka Meetups</p>
+          </div>
         </div>
       </section>
       <div className="pill-categories-1">
-            <Link to="/home" className="pill themed">Home</Link>
+            <Link to="/" className="pill themed">Home</Link>
             <Link to="/about" className="pill themed">About</Link>
             <Link to="/projects" className="pill themed">Projects</Link>
             <Link to="/contact" className="pill themed">Contact</Link>

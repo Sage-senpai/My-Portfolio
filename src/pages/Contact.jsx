@@ -67,7 +67,7 @@ function Contact() {
       </div>
 
        <div className="pill-categories-1">
-              <Link to="/home" className="pill themed">Home</Link>
+              <Link to="/" className="pill themed">Home</Link>
                           <Link to="/about" className="pill themed">About</Link>
                           <Link to="/projects" className="pill themed">Projects</Link>
                           <Link to="/gallery" className="pill themed">Gallery</Link>

@@ -12,10 +12,10 @@ function Projects() {
 
           <ul>
             <li className="link-list-item">
-              <span>NFT Minting Platform</span>
+              <span>Landing Page for a clothing brand</span>
               <button
                 className="themed-link-button"
-                onClick={() => window.open("https://example.com/nft-platform", "_blank")}
+                onClick={() => window.open("https://github.com/Sage-senpai/dvyne-clothing-brand.github.io", "_blank")}
               >
                 View →
               </button>
@@ -74,7 +74,7 @@ function Projects() {
       </div>
 
       <div className="pill-categories-1">
-        <Link to="/home" className="pill themed">Home</Link>
+        <Link to="/" className="pill themed">Home</Link>
                     <Link to="/about" className="pill themed">About</Link>
                     <Link to="/contact" className="pill themed">Contact</Link>
                     <Link to="/gallery" className="pill themed">Gallery</Link>

@@ -33,19 +33,18 @@ function Home() {
            React/ JavaScript /Next.js dev || Robotics Student || Public Speaker & Community Manager ||
 
           </p>
-          <div className="pill-categories">
+                  </div>
+        </section>
+        
+      </div>
+
+      <div className="pill-categories-1">
             <Link to="/about" className="pill themed">About</Link>
             <Link to="/projects" className="pill themed">Projects</Link>
             <Link to="/contact" className="pill themed">Contact</Link>
             <Link to="/gallery" className="pill themed">Gallery</Link>
             
           </div>
-        </div>
-
-
-        </section>
-        
-      </div>
     </div>
   );
 }
