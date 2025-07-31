@@ -77,7 +77,7 @@ function Projects() {
         <Link to="/home" className="pill themed">Home</Link>
                     <Link to="/about" className="pill themed">About</Link>
                     <Link to="/contact" className="pill themed">Contact</Link>
-                    <link to="/gallery" className="pill themed">Gallery</link>
+                    <Link to="/gallery" className="pill themed">Gallery</Link>
       </div>
     </div>
   );

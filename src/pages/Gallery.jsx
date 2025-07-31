@@ -42,7 +42,7 @@ function Gallery() {
       <div className="pill-categories-1">
             <Link to="/home" className="pill themed">Home</Link>
             <Link to="/about" className="pill themed">About</Link>
-            <Link to="/project" className="pill themed">Project</Link>
+            <Link to="/projects" className="pill themed">Projects</Link>
             <Link to="/contact" className="pill themed">Contact</Link>
 
           </div>
