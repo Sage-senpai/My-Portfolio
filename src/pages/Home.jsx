@@ -1,7 +1,9 @@
 // File: src/pages/Home.js
 import React from "react";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 import AOS from "aos";
+
 import { useEffect } from "react";
 import "../index.css";
 
@@ -32,10 +34,11 @@ function Home() {
 
           </p>
           <div className="pill-categories">
-            <a href="/about" className="pill themed">About</a>
-            <a href="/projects" className="pill themed">Projects</a>
-            <a href="/contact" className="pill themed">Contact</a>
-            <a href="/gallery" className="pill themed">Gallery</a>
+            <Link to="/about" className="pill themed">About</Link>
+            <Link to="/project" className="pill themed">Project</Link>
+            <Link to="/contact" className="pill themed">Contact</Link>
+            <link to="/gallery" className="pill themed">Gallery</link>
+            
           </div>
         </div>
 

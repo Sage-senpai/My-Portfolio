@@ -1,5 +1,6 @@
 // File: src/pages/Contact.js
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaEnvelope, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import "../index.css";
 import { FaX } from "react-icons/fa6";
@@ -64,6 +65,13 @@ function Contact() {
           </ul>
         </div>
       </div>
+
+       <div className="pill-categories-1">
+              <Link to="/home" className="pill themed">Home</Link>
+                          <Link to="/about" className="pill themed">About</Link>
+                          <Link to="/projects" className="pill themed">Projects</Link>
+                          <link to="/gallery" className="pill themed">Gallery</link>
+            </div>
     </div>
   );
 }

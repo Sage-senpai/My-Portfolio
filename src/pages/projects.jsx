@@ -1,5 +1,6 @@
 // File: src/pages/Projects.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 function Projects() {
@@ -73,10 +74,10 @@ function Projects() {
       </div>
 
       <div className="pill-categories-1">
-        <a href="/home" className="pill themed">Home</a>
-        <a href="/about" className="pill themed">About</a>
-        <a href="/contact" className="pill themed">Contact</a>
-        <a href="/gallery" className="pill themed">Gallery</a>
+        <Link to="/home" className="pill themed">Home</Link>
+                    <Link to="/about" className="pill themed">About</Link>
+                    <Link to="/contact" className="pill themed">Contact</Link>
+                    <link to="/gallery" className="pill themed">Gallery</link>
       </div>
     </div>
   );

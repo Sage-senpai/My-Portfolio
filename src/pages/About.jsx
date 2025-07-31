@@ -1,5 +1,6 @@
 // File: src/pages/About.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 function About() {
@@ -76,14 +77,14 @@ function About() {
     <ul>
       <li>Robotics Expertice</li>
     </ul>
-  </div>
-</section>
-<div className="pill-categories-1">
-            <a href="/home" className="pill themed">Home</a>
-            <a href="/projects" className="pill themed">Projects</a>
-            <a href="/contact" className="pill themed">Contact</a>
-            <a href="/gallery" className="pill themed">Gallery</a>
-            
+       </div>
+      </section>
+
+        <div className="pill-categories-1">
+            <Link to="/home" className="pill themed">Home</Link>
+            <Link to="/project" className="pill themed">Project</Link>
+            <Link to="/contact" className="pill themed">Contact</Link>
+            <link to="/gallery" className="pill themed">Gallery </link>
           </div>
     </div>
   );

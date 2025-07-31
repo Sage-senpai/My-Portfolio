@@ -1,5 +1,6 @@
 // File: src/pages/Gallery.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 function Gallery() {
@@ -16,7 +17,7 @@ function Gallery() {
         <h3>Latest works and Events</h3>
         <div className="image-grid">
           <img src="/projects.jpg" alt="Preview 1" />
-          <img src="/smart-irrigation.jpg" alt="Preview 2" />
+          <img src="/smart-irigation-system.jpg" alt="Preview 2" />
           <img src="/about.jpg" alt="Preview 3" />
         </div>
       </section>
@@ -26,7 +27,7 @@ function Gallery() {
         <div className="event-cards">
           <div className="event-card" data-aos="fade-right">
             <img src="/workshop.jpg" alt="Event 1" />
-            <p>2-Day Capacity Bilding Workshop On Smart Agriculture</p>
+            <p>2-Day Capacity Building Workshop <br/> On Smart Agriculture</p>
           </div>
           <div className="event-card" data-aos="fade-up">
             <img src="/nivida-workshop.jpg" alt="Event 2" />
@@ -39,10 +40,11 @@ function Gallery() {
         </div>
       </section>
       <div className="pill-categories-1">
-            <a href="/about" className="pill themed">About</a>
-            <a href="/projects" className="pill themed">Projects</a>
-            <a href="/contact" className="pill themed">Contact</a>
-            <a href="/home" className="pill themed">Home</a>
+            <Link to="/home" className="pill themed">Home</Link>
+            <Link to="/about" className="pill themed">About</Link>
+            <Link to="/project" className="pill themed">Project</Link>
+            <Link to="/contact" className="pill themed">Contact</Link>
+
           </div>
     </div>
   );

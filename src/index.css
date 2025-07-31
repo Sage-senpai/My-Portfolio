@@ -294,9 +294,18 @@ button:focus-visible {
   justify-content: center;
   gap: 2rem;
 }
+.event-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 
 .event-card, .event-card-1, .event-card-project {
-  width: 250px;
+  width: 300px;
   background-color: #111;
   padding: 1rem;
   border: 2px solid #FFD700;
