@@ -29,8 +29,8 @@ function Home() {
          
 
           <p className="description">
-          || Crypto specialist || Web3 Enthusiast & Dev || FrontEnd -
-           React/ JavaScript /Next.js dev || Robotics Student || Public Speaker & Community Manager ||
+          || Creative Thinker || Web3 Enthusiast & DevRel || FrontEnd
+         Dev || Robotics Student || Public Speaker & Community Manager || Rotaractor ||
 
           </p>
                   </div>

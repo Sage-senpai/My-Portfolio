@@ -43,6 +43,11 @@ function Gallery() {
             <p>Attended Sui-Move Developer Workshop <br/>
             And the Nsukka Meetups</p>
           </div>
+          <div className="event-card" data-aos="fade-left">
+            <img src="/sui-meetup.jpg" alt="Event 4" />
+            <p>Attended the polkadot Nsukka meetup<br/>
+            as a contributor</p>
+          </div>
         </div>
       </section>
       <div className="pill-categories-1">

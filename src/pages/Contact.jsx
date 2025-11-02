@@ -36,7 +36,7 @@ function Contact() {
     <span>Follow on X</span>
     <button
       className="themed-link-button"
-      onClick={() => window.open("https://x.com/divine_anyadike", "_blank")}
+      onClick={() => window.open("https://x.com/sage_senpeak", "_blank")}
     >
       <FaX />
     </button>
