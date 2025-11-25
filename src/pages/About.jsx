@@ -92,5 +92,5 @@ function About() {
 
 export default About;
 
-//stoped here check for event-card-1 and continue editig the styles
+
 

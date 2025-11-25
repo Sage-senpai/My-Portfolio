@@ -1,44 +1,46 @@
-// File: src/App.js
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/projects";
-import Contact from "./pages/Contact";
-import Gallery from "./pages/Gallery";
-import Navbar from "./components/navbar";
-import Footer from "./components/Footer";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
-  return null;
-}
-
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./styles/global.scss";
+
+import AnimatedNavbar from "./components/AnimatedNavbar";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import ProjectsSection from "./components/ProjectsSection";
+import GallerySection from "./components/GallerySection";
+import ContactSection from "./components/ContactSection";
+import FuturisticFooter from "./components/FuturisticFooter";
+import Iridescence from "./components/Iridescence";
 
 function App() {
-  React.useEffect(() => {
-    AOS.init({ duration: 1000 });
+  useEffect(() => {
+    AOS.init({ duration: 900, once: true });
   }, []);
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/gallery" element={<Gallery />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app-root">
+      {/* Iridescent animated background */}
+      <div className="bg-ctn">
+        <Iridescence
+          color={[1.0, 0.84, 0.0]} // gold-ish color (R,G,B)
+          mouseReact={true}
+          amplitude={0.06}
+          speed={1.0}
+        />
+      </div>
+
+      <AnimatedNavbar />
+
+      <main className="main-scroll">
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <GallerySection />
+        <ContactSection />
+      </main>
+
+      <FuturisticFooter />
+    </div>
   );
 }
 
