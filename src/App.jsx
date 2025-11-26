@@ -1,3 +1,8 @@
+// ============================================================================
+// FILE: src/App.jsx
+// DESCRIPTION: Main application component
+// ============================================================================
+
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,7 +14,6 @@ import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import GallerySection from "./components/GallerySection";
-import ContactSection from "./components/ContactSection";
 import FuturisticFooter from "./components/FuturisticFooter";
 
 function App() {
@@ -34,7 +38,6 @@ function App() {
         <AboutSection />
         <ProjectsSection />
         <GallerySection />
-        <ContactSection />
       </main>
 
       <FuturisticFooter />

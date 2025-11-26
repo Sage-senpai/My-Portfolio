@@ -1,3 +1,8 @@
+// ============================================================================
+// FILE: src/components/SpotlightSkills.jsx
+// DESCRIPTION: Interactive skill cards with spotlight effect
+// ============================================================================
+
 import React, { useState, useRef } from 'react';
 
 const skills = [
@@ -11,7 +16,7 @@ const skills = [
   'Robotics Expertise',
 ];
 
-function SpotlightCard({ children, index }) {
+function SpotlightCard({ children }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
@@ -33,7 +38,7 @@ function SpotlightCard({ children, index }) {
       onMouseLeave={() => setIsHovered(false)}
       style={{
         position: 'relative',
-        background: 'rgba(28, 28, 28, 0.8)',
+        background: 'rgba(0, 0, 0, 0.8)',
         borderRadius: '16px',
         padding: '2rem',
         minHeight: '140px',
@@ -41,20 +46,19 @@ function SpotlightCard({ children, index }) {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        border: '1px solid rgba(176, 0, 32, 0.2)',
+        border: '1px solid rgba(255, 0, 0, 0.3)',
         backdropFilter: 'blur(10px)',
         transition: 'all 0.3s ease',
         cursor: 'pointer',
       }}
     >
-      {/* Spotlight effect */}
       {isHovered && (
         <div
           style={{
             position: 'absolute',
             width: '300px',
             height: '300px',
-            background: `radial-gradient(circle at center, rgba(176, 0, 32, 0.4), transparent 70%)`,
+            background: `radial-gradient(circle at center, rgba(255, 0, 0, 0.4), transparent 70%)`,
             left: `${mousePosition.x}px`,
             top: `${mousePosition.y}px`,
             transform: 'translate(-50%, -50%)',
@@ -64,7 +68,6 @@ function SpotlightCard({ children, index }) {
         />
       )}
 
-      {/* Glow border effect */}
       {isHovered && (
         <div
           style={{
@@ -72,7 +75,7 @@ function SpotlightCard({ children, index }) {
             inset: 0,
             borderRadius: '16px',
             padding: '2px',
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #B00020, transparent 70%)`,
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #FF0000, transparent 70%)`,
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'xor',
             maskComposite: 'exclude',
@@ -81,28 +84,26 @@ function SpotlightCard({ children, index }) {
         />
       )}
 
-      {/* Content */}
       <div style={{
         position: 'relative',
         zIndex: 1,
-        color: isHovered ? '#fff' : '#B00020',
+        color: isHovered ? '#fff' : '#FF0000',
         fontSize: '1rem',
         fontWeight: '600',
         textAlign: 'center',
         lineHeight: '1.6',
         transition: 'color 0.3s ease',
-        textShadow: isHovered ? '0 0 10px rgba(176, 0, 32, 0.5)' : 'none',
+        textShadow: isHovered ? '0 0 10px rgba(255, 0, 0, 0.5)' : 'none',
       }}>
         {children}
       </div>
 
-      {/* Particle effect on hover */}
       {isHovered && (
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(176, 0, 32, 0.1), transparent 50%)`,
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 0, 0, 0.1), transparent 50%)`,
             pointerEvents: 'none',
             animation: 'pulse 1.5s infinite',
           }}
@@ -131,7 +132,7 @@ export default function SpotlightSkills() {
         margin: '0 auto',
       }}>
         {skills.map((skill, index) => (
-          <SpotlightCard key={index} index={index}>
+          <SpotlightCard key={index}>
             {skill}
           </SpotlightCard>
         ))}

@@ -1,3 +1,8 @@
+// ============================================================================
+// FILE: src/components/HeroSection.jsx
+// DESCRIPTION: Simplified hero section with border container like other sections
+// ============================================================================
+
 import React from "react";
 import { Element } from "react-scroll";
 import "../styles/global.scss";
@@ -5,155 +10,62 @@ import "../styles/global.scss";
 export default function HeroSection() {
   return (
     <Element name="home" className="page-container hero-section">
-      <div className="section" data-aos="fade-up">
-        <div className="section-image" data-aos="zoom-in" data-aos-delay="200">
-          <div style={{
-            position: 'relative',
-            padding: '15px',
-            background: 'linear-gradient(135deg, #B00020, #8B0000)',
-            borderRadius: '50%',
-            boxShadow: '0 0 80px rgba(176, 0, 32, 0.8), 0 0 150px rgba(176, 0, 32, 0.4)',
-            animation: 'float 6s ease-in-out infinite'
-          }}>
-            <img 
-              src="/profile.jpg" 
-              alt="Profile" 
-              className="modern-profile-img"
-              style={{
-                border: '5px solid #1C1C1C',
-                boxShadow: 'inset 0 0 40px rgba(176, 0, 32, 0.4)',
-                width: '320px',
-                height: '320px'
-              }}
-            />
-          </div>
+      <div style={{
+        maxWidth: '1400px',
+        width: '100%',
+        background: 'rgba(0, 0, 0, 0.6)',
+        backdropFilter: 'blur(10px)',
+        borderRadius: '20px',
+        border: '1px solid rgba(255, 0, 0, 0.3)',
+        padding: '4rem 2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        gap: '2rem',
+      }} data-aos="fade-up">
+        
+        {/* Profile Image */}
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <img 
+            src="/profile.jpg" 
+            alt="Profile" 
+            className="modern-profile-img"
+            style={{
+              width: '280px',
+              height: '280px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '4px solid #FF0000',
+              boxShadow: '0 0 60px rgba(255, 0, 0, 0.6)',
+            }}
+          />
         </div>
 
-        <div className="section-content" data-aos="fade-left" data-aos-delay="400">
-          <h1 className="gradient-text animated-name" style={{
+        {/* Name and Title */}
+        <div data-aos="fade-up" data-aos-delay="400" style={{
+          maxWidth: '800px',
+        }}>
+          <h1 style={{
             fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            marginBottom: '1.5rem',
+            marginBottom: '1rem',
             fontWeight: '900',
-            letterSpacing: '-0.02em'
+            letterSpacing: '-0.02em',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #FF0000 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
           }}>
             Anyadike Divine
           </h1>
 
-          <div style={{
-            background: 'rgba(28, 28, 28, 0.6)',
-            backdropFilter: 'blur(10px)',
-            padding: '2rem',
-            borderRadius: '20px',
-            border: '1px solid rgba(176, 0, 32, 0.2)',
-            marginBottom: '2rem',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+          <p style={{
+            fontSize: '1.3rem',
+            color: '#fff',
+            fontWeight: '500',
+            lineHeight: '1.6',
           }}>
-            <p className="description" style={{
-              fontSize: '1.2rem',
-              lineHeight: '1.8',
-              color: '#fff',
-              textAlign: 'center'
-            }}>
-              <span style={{ color: '#B00020', fontWeight: '700' }}>||</span> Creative Thinker 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> || </span> Web3 Enthusiast & DevRel 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> || </span> FrontEnd Dev 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> || </span> Robotics Student 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> || </span> Public Speaker & Community Manager 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> || </span> Rotaractor 
-              <span style={{ color: '#B00020', fontWeight: '700' }}> ||</span>
-            </p>
-          </div>
-
-          <div className="floating-pills" data-aos="fade-up" data-aos-delay="600">
-            <a 
-              href="#about" 
-              className="pill"
-              style={{
-                background: 'linear-gradient(135deg, rgba(176, 0, 32, 0.2), transparent)',
-                border: '2px solid #B00020',
-                color: '#B00020',
-                fontWeight: '700',
-                fontSize: '1.1rem',
-                padding: '1rem 2.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
-              onMouseEnter={e => {
-                e.target.style.background = 'linear-gradient(135deg, #B00020, #8B0000)';
-                e.target.style.color = '#fff';
-                e.target.style.transform = 'translateY(-5px)';
-                e.target.style.boxShadow = '0 10px 30px rgba(176, 0, 32, 0.6)';
-              }}
-              onMouseLeave={e => {
-                e.target.style.background = 'linear-gradient(135deg, rgba(176, 0, 32, 0.2), transparent)';
-                e.target.style.color = '#B00020';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              About
-            </a>
-            
-            <a 
-              href="#projects" 
-              className="pill"
-              style={{
-                background: 'linear-gradient(135deg, rgba(176, 0, 32, 0.2), transparent)',
-                border: '2px solid #B00020',
-                color: '#B00020',
-                fontWeight: '700',
-                fontSize: '1.1rem',
-                padding: '1rem 2.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
-              onMouseEnter={e => {
-                e.target.style.background = 'linear-gradient(135deg, #B00020, #8B0000)';
-                e.target.style.color = '#fff';
-                e.target.style.transform = 'translateY(-5px)';
-                e.target.style.boxShadow = '0 10px 30px rgba(176, 0, 32, 0.6)';
-              }}
-              onMouseLeave={e => {
-                e.target.style.background = 'linear-gradient(135deg, rgba(176, 0, 32, 0.2), transparent)';
-                e.target.style.color = '#B00020';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              Projects
-            </a>
-            
-            <a 
-              href="#contact" 
-              className="pill"
-              style={{
-                background: 'linear-gradient(135deg, #B00020, #8B0000)',
-                border: '2px solid #B00020',
-                color: '#fff',
-                fontWeight: '700',
-                fontSize: '1.1rem',
-                padding: '1rem 2.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                boxShadow: '0 4px 20px rgba(176, 0, 32, 0.4)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
-              onMouseEnter={e => {
-                e.target.style.transform = 'translateY(-5px)';
-                e.target.style.boxShadow = '0 10px 40px rgba(176, 0, 32, 0.6)';
-              }}
-              onMouseLeave={e => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 20px rgba(176, 0, 32, 0.4)';
-              }}
-            >
-              Contact
-            </a>
-          </div>
+            Web3 Developer | Smart Contract Engineer | Community Manager
+          </p>
         </div>
       </div>
     </Element>

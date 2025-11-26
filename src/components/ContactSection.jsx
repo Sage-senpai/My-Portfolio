@@ -1,3 +1,8 @@
+// ============================================================================
+// FILE: src/components/ContactSection.jsx
+// DESCRIPTION: Contact section with social links
+// ============================================================================
+
 import React from "react";
 import { Element } from "react-scroll";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
@@ -13,9 +18,9 @@ export default function ContactSection() {
         </div>
 
         <div className="section-content">
-          <h2 className="name">Contact Me</h2>
+          <h2 className="name gradient-text">Contact Me</h2>
 
-          <ul>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
             <li className="link-list-item">
               <span>Email Me</span>
               <button

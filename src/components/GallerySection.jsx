@@ -1,184 +1,184 @@
-import React, { useState } from 'react';
+// ============================================================================
+// FILE: src/components/GallerySection.jsx
+// DESCRIPTION: Simple plancard-style gallery with hover effects
+// ============================================================================
 
-const images = [
-  { src: '/projects.jpg', title: 'Projects' },
-  { src: '/smart-irigation-system.jpg', title: 'Smart Irrigation' },
-  { src: '/about.jpg', title: 'About' },
-  { src: '/sui-meetup-group.jpg', title: 'Sui Meetup' },
-  { src: '/workshop.jpg', title: 'Workshop' },
-  { src: '/nivida-workshop.jpg', title: 'NVIDIA AI' },
-  { src: '/bitcoin-pizza-day.jpg', title: 'Bitcoin Pizza' },
-  { src: '/sui-meetup.jpg', title: 'Sui Dev Workshop' },
+import React from 'react';
+import { Element } from 'react-scroll';
+
+const galleryItems = [
+  {
+    image: '/workshop.jpg',
+    title: '2-Day Capacity Building Workshop',
+    description: 'On Smart Agriculture'
+  },
+  {
+    image: '/nivida-workshop.jpg',
+    title: 'Attended NVIDIA-UNN AI Workshop',
+    description: 'Deep learning and AI fundamentals'
+  },
+  {
+    image: '/bitcoin-pizza-day.jpg',
+    title: 'World Bitcoin Pizza Day',
+    description: 'Celebrating crypto adoption milestone'
+  },
+  {
+    image: '/sui-meetup.jpg',
+    title: 'Sui-Move Developer Workshop',
+    description: 'And the Nsukka Meetups'
+  },
+  {
+    image: '/sui-meetup-group.jpg',
+    title: 'Polkadot Nsukka Meetup',
+    description: 'As a contributor'
+  },
+  {
+    image: '/projects.jpg',
+    title: 'Latest Projects',
+    description: 'Showcase of recent development work'
+  },
+  {
+    image: '/smart-irigation-system.jpg',
+    title: 'Smart Irrigation System',
+    description: 'IoT-based agricultural innovation'
+  },
+  {
+    image: '/about.jpg',
+    title: 'Community Events',
+    description: 'Building Web3 communities'
+  }
 ];
 
-export default function CircularGallery() {
-  const [rotation, setRotation] = useState(0);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const radius = 280;
-  const angleStep = (2 * Math.PI) / images.length;
-
-  const handleRotate = (direction) => {
-    const step = 360 / images.length;
-    setRotation(prev => prev + (direction === 'next' ? -step : step));
-    setSelectedIndex(prev => 
-      direction === 'next' 
-        ? (prev + 1) % images.length 
-        : (prev - 1 + images.length) % images.length
-    );
-  };
-
+export default function GallerySection() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '3rem',
-      padding: '4rem 1rem',
-      minHeight: '600px',
-    }}>
+    <Element name="gallery" className="page-container">
       <div style={{
-        position: 'relative',
         width: '100%',
-        maxWidth: '700px',
-        height: '500px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        maxWidth: '1400px',
       }}>
-        <div
-          style={{
-            position: 'relative',
-            width: '600px',
-            height: '600px',
-            transform: `rotate(${rotation}deg)`,
-            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-          }}
-        >
-          {images.map((img, i) => {
-            const angle = i * angleStep;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-            const isSelected = i === selectedIndex;
+        <h2 style={{
+          fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+          fontWeight: '900',
+          textAlign: 'center',
+          marginBottom: '1rem',
+          background: 'linear-gradient(135deg, #fff 0%, #FF0000 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          textShadow: '0 0 40px rgba(255, 0, 0, 0.5)',
+        }}
+        data-aos="fade-up">
+          Gallery & Highlights
+        </h2>
 
-            return (
-              <div
-                key={i}
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: '50%',
-                  width: isSelected ? '180px' : '140px',
-                  height: isSelected ? '180px' : '140px',
-                  transform: `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${-rotation}deg) scale(${isSelected ? 1 : 0.85})`,
-                  transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer',
-                  zIndex: isSelected ? 10 : 1,
-                }}
-                onClick={() => {
-                  const diff = i - selectedIndex;
-                  const step = 360 / images.length;
-                  setRotation(prev => prev - (diff * step));
-                  setSelectedIndex(i);
-                }}
-              >
+        <p style={{
+          textAlign: 'center',
+          color: '#999',
+          fontSize: '1.1rem',
+          marginBottom: '4rem',
+          maxWidth: '600px',
+          margin: '0 auto 4rem',
+        }}
+        data-aos="fade-up"
+        data-aos-delay="100">
+          Events, workshops, and community involvement
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '2rem',
+        }}>
+          {galleryItems.map((item, index) => (
+            <div
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              style={{
+                background: 'rgba(0, 0, 0, 0.8)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '1px solid rgba(255, 0, 0, 0.3)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                position: 'relative',
+                backdropFilter: 'blur(10px)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(255, 0, 0, 0.4)';
+                e.currentTarget.style.borderColor = '#FF0000';
+                const img = e.currentTarget.querySelector('img');
+                if (img) img.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = 'rgba(255, 0, 0, 0.3)';
+                const img = e.currentTarget.querySelector('img');
+                if (img) img.style.transform = 'scale(1)';
+              }}
+            >
+              {/* Image */}
+              <div style={{
+                width: '100%',
+                height: '250px',
+                overflow: 'hidden',
+                position: 'relative',
+              }}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
                 <div style={{
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '50%',
-                  overflow: 'hidden',
-                  border: isSelected ? '3px solid #B00020' : '2px solid rgba(176, 0, 32, 0.3)',
-                  boxShadow: isSelected 
-                    ? '0 0 30px rgba(176, 0, 32, 0.6), 0 0 60px rgba(176, 0, 32, 0.3)' 
-                    : '0 8px 20px rgba(0, 0, 0, 0.5)',
-                  background: '#1C1C1C',
-                  position: 'relative',
-                }}>
-                  <img
-                    src={img.src}
-                    alt={img.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      filter: isSelected ? 'brightness(1.1)' : 'brightness(0.7)',
-                      transition: 'filter 0.5s ease',
-                    }}
-                  />
-                </div>
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                }}></div>
               </div>
-            );
-          })}
+
+              {/* Content */}
+              <div style={{
+                padding: '1.5rem',
+              }}>
+                <h3 style={{
+                  color: '#FF0000',
+                  fontSize: '1.3rem',
+                  fontWeight: '700',
+                  marginBottom: '0.5rem',
+                  lineHeight: '1.3',
+                }}>
+                  {item.title}
+                </h3>
+                <p style={{
+                  color: '#fff',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6',
+                }}>
+                  {item.description}
+                </p>
+              </div>
+
+              {/* Top Glow Effect on Hover */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '3px',
+                background: 'linear-gradient(90deg, transparent, #FF0000, transparent)',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+              }}></div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <div style={{
-        textAlign: 'center',
-        color: '#B00020',
-      }}>
-        <h3 style={{
-          fontSize: '1.8rem',
-          fontWeight: '700',
-          marginBottom: '0.5rem',
-          textShadow: '0 0 20px rgba(176, 0, 32, 0.5)',
-        }}>
-          {images[selectedIndex].title}
-        </h3>
-      </div>
-
-      <div style={{
-        display: 'flex',
-        gap: '1rem',
-      }}>
-        <button
-          onClick={() => handleRotate('prev')}
-          style={{
-            padding: '0.8rem 2rem',
-            background: 'linear-gradient(135deg, #B00020, #8B0000)',
-            border: '1px solid rgba(176, 0, 32, 0.5)',
-            borderRadius: '50px',
-            color: '#fff',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 4px 15px rgba(176, 0, 32, 0.3)',
-          }}
-          onMouseEnter={e => {
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 25px rgba(176, 0, 32, 0.5)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(176, 0, 32, 0.3)';
-          }}
-        >
-          ← Previous
-        </button>
-        <button
-          onClick={() => handleRotate('next')}
-          style={{
-            padding: '0.8rem 2rem',
-            background: 'linear-gradient(135deg, #B00020, #8B0000)',
-            border: '1px solid rgba(176, 0, 32, 0.5)',
-            borderRadius: '50px',
-            color: '#fff',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 4px 15px rgba(176, 0, 32, 0.3)',
-          }}
-          onMouseEnter={e => {
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 25px rgba(176, 0, 32, 0.5)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(176, 0, 32, 0.3)';
-          }}
-        >
-          Next →
-        </button>
-      </div>
-    </div>
+    </Element>
   );
 }

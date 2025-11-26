@@ -1,3 +1,8 @@
+// ============================================================================
+// FILE: src/components/AnimatedNavbar.jsx
+// DESCRIPTION: Responsive navigation bar - PERFECTLY CENTERED
+// ============================================================================
+
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink, Events } from "react-scroll";
 import "../styles/global.scss";
@@ -19,11 +24,10 @@ function AnimatedNavbar() {
     { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
     { id: "gallery", label: "Gallery" },
-    { id: "contact", label: "Contact" },
   ];
 
   return (
-    <nav className="navbar glass">
+    <nav className="navbar">
       <ul>
         {navItems.map((it) => (
           <li key={it.id}>
