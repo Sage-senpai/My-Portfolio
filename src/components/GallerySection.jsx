@@ -23,14 +23,19 @@ const galleryItems = [
     description: 'Celebrating crypto adoption milestone'
   },
   {
-    image: '/sui-meetup.jpg',
-    title: 'Sui-Move Developer Workshop',
-    description: 'And the Nsukka Meetups'
+    image: '/polkadot-dev.jpg',
+    title: 'Polkadot Developer Workshop',
+    description: 'Personally onboarded developers'
   },
   {
-    image: '/sui-meetup-group.jpg',
-    title: 'Polkadot Nsukka Meetup',
-    description: 'As a contributor'
+    image: '/sui-meetup.jpg',
+    title: 'Sui-Move Developer Workshop',
+    description: 'Sui Nsukka Meetups'
+  },
+  {
+    image: '/road-2-sub0.jpg',
+    title: 'Polkadot Road to sub0 Meetup',
+    description: 'Attended as a builder'
   },
   {
     image: '/projects.jpg',

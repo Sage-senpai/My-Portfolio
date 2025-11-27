@@ -82,7 +82,7 @@ export default function AboutSection() {
         }}
         data-aos="fade-up"
         data-aos-delay="100">
-          Click on each category to explore my professional capabilities
+          
         </p>
         
         <div data-aos="fade-up" data-aos-delay="200">
