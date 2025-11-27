@@ -1,6 +1,6 @@
 // ============================================================================
 // FILE: src/components/AboutSection.jsx
-// DESCRIPTION: About section with expanded professional description
+// DESCRIPTION: About section with updated professional description
 // ============================================================================
 
 import React from "react";
@@ -35,32 +35,24 @@ export default function AboutSection() {
           }}>
             <div style={{ 
               color: '#fff', 
-              fontSize: '1rem', 
+              fontSize: '1.05rem', 
               lineHeight: '1.8',
               textAlign: 'justify',
             }}>
-              <p style={{ marginBottom: '1rem' }}>
-                I am a forward-thinking <span style={{ color: '#FF0000', fontWeight: '700' }}>Web3 creator, community manager, and product-minded developer</span> who blends technical execution with storytelling and ecosystem growth. My work spans building full-scale applications, managing active online communities, and producing high-quality threads and deep dives that spotlight emerging Web3 innovations.
+              <p style={{ marginBottom: '1.2rem' }}>
+                Forward-thinking <span style={{ color: '#FF0000', fontWeight: '700' }}>Web3 builder</span> with a blend of front-end engineering, product thinking, and community leadership. I develop scalable, user-focused applications <span style={{ color: '#FF0000', fontWeight: '600' }}>(React, Vite, SCSS)</span> and have delivered projects across DeFi, dashboards, authentication systems, and crypto-integrated logic — including <span style={{ color: '#FF0000', fontWeight: '600' }}>Nexachain, DotVest, Dotique, Lunera</span> and multiple Web3 prototypes.
               </p>
 
-              <p style={{ marginBottom: '1rem' }}>
-                On the technical side, I specialize in <span style={{ color: '#FF0000', fontWeight: '700' }}>front-end engineering (React, Vite, SCSS), component architecture, routing systems, authentication flows, dashboards, crypto payment logic, and user-centric UI/UX</span>. I've built and maintained projects like SummitYield Capital, DotVest, Dotique, and multiple DeFi prototypes — delivering clean interfaces, consistent design systems, and scalable logic across the stack.
+              <p style={{ marginBottom: '1.2rem' }}>
+                Beyond development, I bring strong ecosystem and community-building experience. I manage technical and gaming communities <span style={{ color: '#FF0000', fontWeight: '600' }}>(EngineeringXpress, Chasing Farlight)</span>, driving engagement, moderation systems, events, and user onboarding. This has strengthened my communication, problem-solving, and ability to maintain healthy community dynamics.
               </p>
 
-              <p style={{ marginBottom: '1rem' }}>
-                Alongside engineering, I bring strong community leadership experience. I serve as a community manager for <span style={{ color: '#FF0000', fontWeight: '700' }}>EngineeringXpress</span>, where I support dev learners, organize resources, help maintain engagement pipelines, and ensure members stay active and motivated. I also manage <span style={{ color: '#FF0000', fontWeight: '700' }}>Chasing Farlight</span>, a fast-growing gaming Discord community, where I coordinate events, maintain moderation systems, handle onboarding, and build healthy user dynamics. These roles have strengthened my communication, conflict resolution, team coordination, and community-driven problem-solving — all essential for Web3 ambassador and ecosystem growth positions.
-              </p>
-
-              <p style={{ marginBottom: '1rem' }}>
-                Across ecosystems, I create structured, insight-rich content on X (Twitter), including DeFi breakdowns, project analyses, builder program highlights, and ecosystem explanations for <span style={{ color: '#FF0000', fontWeight: '700' }}>Polkadot, HeLa Labs, Ayetu Network, Core</span>, and others. My content helps onboard new users, amplify projects, and create clarity in complex spaces — a major value for ambassador roles and community expansion initiatives.
-              </p>
-
-              <p style={{ marginBottom: '1rem' }}>
-                I thrive in fast-moving environments like builder programs, hackathons, and L1/L2 community ecosystems. My strengths lie in <span style={{ color: '#FF0000', fontWeight: '700' }}>clarity, execution, creative problem-solving</span>, and the ability to bridge engineering, product thinking, and community engagement. I am deeply passionate about decentralization, digital identity, on-chain UX, and designing intuitive platforms that empower users.
+              <p style={{ marginBottom: '1.2rem' }}>
+                I also create structured, insight-driven Web3 content — deep dives, ecosystem analyses, and technical breakdowns across networks like <span style={{ color: '#FF0000', fontWeight: '600' }}>Polkadot, HeLa Labs, Ayetu Network, Cardano</span>, and more — helping onboard users and amplify innovative projects.
               </p>
 
               <p style={{ color: '#FF0000', fontWeight: '700', fontSize: '1.1rem' }}>
-                My ambition is always the same: build meaningful products, grow strong communities, support ecosystems, and contribute to the next generation of decentralized applications.
+                I thrive in fast-moving environments, bridging engineering execution with storytelling and community growth. Passionate about decentralized systems, digital identity, and intuitive on-chain UX, I aim to build meaningful products and support the next generation of Web3 ecosystems.
               </p>
             </div>
           </div>
@@ -75,10 +67,23 @@ export default function AboutSection() {
         <h2 
           className="text-center gradient-text" 
           data-aos="fade-up"
-          style={{ marginBottom: '3rem' }}
+          style={{ marginBottom: '1rem' }}
         >
           Skills & Expertise
         </h2>
+        
+        <p style={{
+          textAlign: 'center',
+          color: '#999',
+          fontSize: '1rem',
+          marginBottom: '2rem',
+          maxWidth: '700px',
+          margin: '0 auto 3rem',
+        }}
+        data-aos="fade-up"
+        data-aos-delay="100">
+          Click on each category to explore my professional capabilities
+        </p>
         
         <div data-aos="fade-up" data-aos-delay="200">
           <SpotlightSkills />
