@@ -1,0 +1,75 @@
+// ============================================================================
+// FILE: src/styles/components/Footer.scss
+// DESCRIPTION: Futuristic footer styles
+// ============================================================================
+
+.site-footer {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--red-border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-label {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-social-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--red-border);
+  border-radius: 50%;
+  color: var(--red-primary);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+    color: var(--white);
+    border-color: var(--red-primary);
+    transform: translateY(-5px) rotate(360deg);
+    box-shadow: 0 10px 30px var(--red-glow);
+  }
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+// ── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .footer-social-list {
+    gap: 1rem;
+  }
+
+  .footer-social-link {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+}

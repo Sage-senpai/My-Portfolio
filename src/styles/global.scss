@@ -348,34 +348,42 @@ p {
   box-shadow: 0 10px 30px var(--red-glow);
 }
 
-/* === ENHANCED RESPONSIVE STYLES === */
+/* === RESPONSIVE STYLES === */
+
+// ── Tablet / large phones (≤768px) ──────────────────────────────────────────
 @media (max-width: 768px) {
- 
+  // Remove forced full-viewport height — sections stack compactly
+  .page-container {
+    min-height: auto;
+    padding: 4.5rem 1rem 2.5rem;
+    justify-content: flex-start;
+  }
+
   .section {
     grid-template-columns: 1fr;
     text-align: center;
     padding: 1.5rem;
+    gap: 2rem; // desktop uses var(--spacing-lg)=4rem; half that on mobile
   }
 
   .modern-profile-img {
-    width: 220px !important;
-    height: 220px !important;
-  }
-
-  .page-container {
-    padding: 5rem 1rem 2rem;
+    width: 200px !important;
+    height: 200px !important;
   }
 }
 
+// ── Small phones (≤480px) ────────────────────────────────────────────────────
 @media (max-width: 480px) {
-  
+  .page-container {
+    padding: 4rem 0.875rem 1.75rem;
+  }
 
   h1 {
     font-size: 2rem !important;
   }
 
   .modern-profile-img {
-    width: 180px !important;
-    height: 180px !important;
+    width: 150px !important;
+    height: 150px !important;
   }
 }

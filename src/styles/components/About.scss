@@ -1,0 +1,107 @@
+// ============================================================================
+// FILE: src/styles/components/About.scss
+// DESCRIPTION: About section styles
+// ============================================================================
+
+.about-bio-box {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--red-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-height: 500px;
+  overflow-y: auto;
+
+  // Custom scrollbar inside bio box
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--red-dark);
+    border-radius: 3px;
+  }
+}
+
+.about-bio-text {
+  color: var(--white);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: justify;
+
+  p {
+    margin-bottom: 1.2rem;
+    color: var(--white);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .highlight {
+    color: var(--red-primary);
+    font-weight: 700;
+  }
+
+  .highlight-soft {
+    color: var(--red-primary);
+    font-weight: 600;
+  }
+
+  .closing-statement {
+    color: var(--red-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+}
+
+.skills-sub-header {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+.skills-wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 4rem;
+}
+
+// ── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .about-bio-box {
+    max-height: 300px;
+    padding: 1.25rem;
+  }
+
+  .about-bio-text {
+    font-size: 0.9rem;
+    text-align: left; // justify looks awkward on narrow single columns
+  }
+
+  .skills-wrapper {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-bio-box {
+    max-height: 240px;
+    padding: 1rem;
+  }
+
+  .about-bio-text {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .skills-wrapper {
+    margin-top: 2rem;
+  }
+}

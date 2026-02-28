@@ -1,0 +1,15 @@
+// ============================================================================
+// FILE: src/styles/components/Background.scss
+// DESCRIPTION: HyperspeedBackground canvas styles
+// ============================================================================
+
+.hyperspeed-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000000;
+  pointer-events: none;
+}
