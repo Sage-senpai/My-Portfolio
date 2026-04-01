@@ -1,47 +1,52 @@
 // ============================================================================
 // FILE: src/App.tsx
-// DESCRIPTION: Root application component — initialises AOS and composes layout
+// DESCRIPTION: Adaptive Portfolio System — view router with AnimatePresence
 // ============================================================================
 
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import './styles/global.scss';
 
-import HyperspeedBackground from './components/HyperspeedBackground';
-import AnimatedNavbar from './components/AnimatedNavbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProjectsSection from './components/ProjectsSection';
-import GallerySection from './components/GallerySection';
-import FuturisticFooter from './components/FuturisticFooter';
+import IdentitySelector from './views/IdentitySelector';
+import VCView from './views/VCView';
+import CTOView from './views/CTOView';
+import ClientView from './views/ClientView';
+import AmbassadorView from './views/AmbassadorView';
+import EventView from './views/EventView';
 
-function App(): JSX.Element {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-      offset: 100,
-      easing: 'ease-out-cubic',
-    });
-  }, []);
+import type { ViewId } from './data/portfolio';
+
+const viewMap: Record<ViewId, React.ComponentType<{ onBack: () => void }>> = {
+  vc: VCView,
+  cto: CTOView,
+  client: ClientView,
+  ambassador: AmbassadorView,
+  event: EventView,
+};
+
+const transition = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
+  transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
+};
+
+function App() {
+  const [view, setView] = useState<ViewId | null>(null);
+  const CurrentView = view ? viewMap[view] : null;
 
   return (
-    <div className="app-root">
-      {/* GPU-accelerated star field — fixed, behind all content */}
-      <HyperspeedBackground />
-
-      <AnimatedNavbar />
-
-      <main className="main-scroll">
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <GallerySection />
-      </main>
-
-      <FuturisticFooter />
-    </div>
+    <AnimatePresence mode="wait">
+      {CurrentView ? (
+        <motion.div key={view} {...transition}>
+          <CurrentView onBack={() => setView(null)} />
+        </motion.div>
+      ) : (
+        <motion.div key="selector" {...transition}>
+          <IdentitySelector onSelect={setView} />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
