@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { PROJECTS, EVENTS, SKILLS } from '../data/portfolio';
+import { PROJECTS, EVENTS, SKILLS, OSS_CONTRIBUTIONS, PROFILE } from '../data/portfolio';
 import BackButton from '../components/BackButton';
 import '../styles/views/_cto.scss';
 
@@ -135,6 +135,7 @@ export default function CTOView({ onBack }: Props) {
         '  skill --list    Technical skill tree',
         '  git log         Career milestones',
         '  ping employer   Check availability',
+        '  ls oss/         Open source contributions',
         '  open <name>     View project details',
         '  sudo hire me    Execute hire protocol',
         '  matrix          Enter the matrix',
@@ -144,10 +145,11 @@ export default function CTOView({ onBack }: Props) {
     } else if (lower === 'whoami') {
       pushOutput([
         '',
-        '  Name:        Anyadike Divine',
-        '  Role:        Web3 Frontend Architect',
-        '  Location:    Nsukka, Nigeria',
-        '  Ecosystems:  Polkadot · Sui · 0G · Solana · Kusama · Mandala · Encode',
+        `  Name:        ${PROFILE.name}`,
+        '  Role:        Web3 Developer · Smart Contract Engineer · Community Manager',
+        `  Location:    ${PROFILE.location}`,
+        '  Ecosystems:  Polkadot · Sui · 0G · Solana · Stellar · Mandala · Mantle · Pacifica',
+        `  Projects:    ${PROJECTS.length} shipped`,
         '  POW Score:   9,847',
         '  Availability: Open to opportunities',
         '',
@@ -157,6 +159,7 @@ export default function CTOView({ onBack }: Props) {
         '',
         '  drwxr-xr-x  projects/',
         '  drwxr-xr-x  events/',
+        '  drwxr-xr-x  oss/',
         '  -rw-r--r--  about.txt',
         '  -rw-r--r--  contact.txt',
         '  -rw-r--r--  skills.json',
@@ -207,10 +210,10 @@ export default function CTOView({ onBack }: Props) {
         '  │  CONTACT INFORMATION                     │',
         '  └─────────────────────────────────────────┘',
         '',
-        '  Email:    anyadikedivine@gmail.com',
-        '  Twitter:  @anaborejustin',
-        '  GitHub:   github.com/Sage-senpai',
-        '  LinkedIn: linkedin.com/in/anyadikedivine',
+        `  Email:    ${PROFILE.email}`,
+        `  Twitter:  @${PROFILE.twitter}`,
+        `  GitHub:   github.com/${PROFILE.github}`,
+        `  LinkedIn: linkedin.com/in/${PROFILE.linkedin}`,
         '',
       ]);
     } else if (lower === 'skill --list') {
@@ -254,8 +257,15 @@ export default function CTOView({ onBack }: Props) {
         '  Init: Started Web3 journey — React + TypeScript foundations',
         '',
       ]);
+    } else if (lower === 'ls oss/' || lower === 'ls contributions/') {
+      pushOutput([
+        '',
+        '  OPEN SOURCE CONTRIBUTIONS',
+        '  ──────────────────────────────────────────────────',
+        ...OSS_CONTRIBUTIONS.map((c) => `  ⑂  ${c.project.padEnd(20)} ${c.description.slice(0, 50)}...`),
+        '',
+      ]);
     } else if (lower === 'ping employer') {
-      const lines: HistoryLine[] = [];
       const addPingLine = (i: number) => {
         setTimeout(() => {
           setHistory((prev) => [
@@ -273,8 +283,8 @@ export default function CTOView({ onBack }: Props) {
                 '  4 packets transmitted, 4 received, 0% packet loss',
                 '',
                 '  STATUS: AVAILABLE FOR HIRE',
-                '  Contact: anyadikedivine@gmail.com',
-                '  Twitter: @anaborejustin',
+                `  Contact: ${PROFILE.email}`,
+                `  Twitter: @${PROFILE.twitter}`,
                 '',
               ]);
             }, 400);
@@ -318,9 +328,9 @@ export default function CTOView({ onBack }: Props) {
         '',
         '  ✓ Transaction complete. Hire request approved.',
         '',
-        '  Contact: anyadikedivine@gmail.com',
-        '  Twitter: @anaborejustin',
-        '  GitHub:  github.com/Sage-senpai',
+        `  Contact: ${PROFILE.email}`,
+        `  Twitter: @${PROFILE.twitter}`,
+        `  GitHub:  github.com/${PROFILE.github}`,
         '',
       ];
       stages.forEach((line, i) => {

@@ -3,7 +3,7 @@
 // DESCRIPTION: Landing page — visitor selects their identity/perspective
 // ============================================================================
 
-import { PERSONAS, type ViewId } from '../data/portfolio';
+import { PERSONAS, PROFILE, type ViewId } from '../data/portfolio';
 import '../styles/views/_selector.scss';
 
 interface Props {
@@ -35,7 +35,7 @@ function CTOPreview() {
 function ClientPreview() {
   return (
     <div style={{ display: 'flex', gap: '0.5rem', width: '100%', justifyContent: 'center' }}>
-      {[['10', 'Projects'], ['12', 'Events'], ['7', 'Chains']].map(([val, label]) => (
+      {[['25', 'Projects'], ['13', 'Events'], ['7', 'Chains']].map(([val, label]) => (
         <div key={label} style={{
           textAlign: 'center', padding: '0.4rem 0.6rem',
           background: 'rgba(0,212,255,0.05)', borderRadius: '6px',
@@ -50,16 +50,42 @@ function ClientPreview() {
 }
 
 function AmbassadorPreview() {
+  // Solar system mini preview
   return (
-    <svg viewBox="0 0 120 60" width="120" height="60">
-      <circle cx="60" cy="30" r="5" fill="#E6007A" opacity={0.8} />
-      {[[30, 12], [90, 12], [20, 48], [100, 48], [60, 55]].map(([cx, cy], i) => (
-        <g key={i}>
-          <line x1={60} y1={30} x2={cx} y2={cy} stroke="rgba(230,0,122,0.3)" strokeWidth={0.7} />
-          <circle cx={cx} cy={cy} r={3} fill="none" stroke="#E6007A" strokeWidth={0.7} opacity={0.6} />
-        </g>
+    <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Sun */}
+      <div style={{
+        width: 14, height: 14, borderRadius: '50%',
+        background: 'radial-gradient(circle, #E6007A, #E6007A66)',
+        boxShadow: '0 0 12px rgba(230,0,122,0.4)',
+        position: 'absolute',
+      }} />
+      {/* Orbits */}
+      {[22, 36, 50].map((r, i) => (
+        <div key={i} style={{
+          width: r * 2, height: r * 2, borderRadius: '50%',
+          border: '1px dashed rgba(255,255,255,0.06)',
+          position: 'absolute',
+        }} />
       ))}
-    </svg>
+      {/* Planets */}
+      {[
+        { x: 0, y: -22, color: '#E6007A', size: 6 },
+        { x: 30, y: 15, color: '#00D395', size: 5 },
+        { x: -36, y: 5, color: '#9945FF', size: 5 },
+        { x: 15, y: -42, color: '#4DA2FF', size: 4 },
+        { x: -20, y: 40, color: '#FF6B6B', size: 4 },
+        { x: 45, y: -10, color: '#7B61FF', size: 4 },
+        { x: -10, y: -50, color: '#F59E0B', size: 4 },
+      ].map((p, i) => (
+        <div key={i} style={{
+          width: p.size, height: p.size, borderRadius: '50%',
+          background: p.color, position: 'absolute',
+          transform: `translate(${p.x}px, ${p.y}px)`,
+          boxShadow: `0 0 6px ${p.color}66`,
+        }} />
+      ))}
+    </div>
   );
 }
 
@@ -95,7 +121,7 @@ export default function IdentitySelector({ onSelect }: Props) {
         <p className="selector__label">Adaptive Portfolio System</p>
         <h1 className="selector__name">ANYADIKE DIVINE</h1>
         <p className="selector__tagline">
-          Web3 Developer · Community Manager · Ecosystem Builder · Nigeria
+          {PROFILE.role} · Nigeria
         </p>
         <hr className="selector__line" />
       </div>
@@ -113,8 +139,6 @@ export default function IdentitySelector({ onSelect }: Props) {
               className="selector__card"
               style={{
                 animationDelay: `${0.08 * i}s`,
-                ['--card-accent' as string]: p.accent,
-                ['--card-glow' as string]: p.glow,
               }}
               onClick={() => onSelect(p.id)}
               onMouseEnter={(e) => {

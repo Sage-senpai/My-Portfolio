@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { useState, useEffect } from 'react';
-import { PROJECTS } from '../data/portfolio';
+import { PROJECTS, OSS_CONTRIBUTIONS, PROFILE } from '../data/portfolio';
 import BackButton from '../components/BackButton';
 import '../styles/views/_vc.scss';
 
@@ -20,6 +20,8 @@ const TYPE_COLORS: Record<string, string> = {
   Gamified: '#F59E0B',
   RealFi: '#FF6B6B',
   Website: '#60A5FA',
+  DevTool: '#00D4FF',
+  HealthTech: '#FF6B9D',
 };
 
 export default function VCView({ onBack }: Props) {
@@ -59,7 +61,7 @@ export default function VCView({ onBack }: Props) {
         </div>
         <div className="vc__wallet-item">
           <span className="vc__wallet-label">Network</span>
-          <span className="vc__wallet-value vc__wallet-value--white">Multi-chain · 7 ecosystems</span>
+          <span className="vc__wallet-value vc__wallet-value--white">Multi-chain · {[...new Set(PROJECTS.map(p => p.ecosystem))].filter(e => e !== 'web2').length} ecosystems</span>
         </div>
         <div className="vc__wallet-item">
           <span className="vc__wallet-label">POW Score</span>
@@ -123,14 +125,16 @@ export default function VCView({ onBack }: Props) {
                 >
                   GitHub
                 </a>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vc__link-btn vc__link-btn--live"
-                >
-                  Live Demo
-                </a>
+                {project.liveUrl && project.liveUrl !== '#' && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="vc__link-btn vc__link-btn--live"
+                  >
+                    Live Demo
+                  </a>
+                )}
               </div>
               <div className="vc__meta">Block confirmations: 312 · Gas invested: 840 hours</div>
             </div>
@@ -138,8 +142,26 @@ export default function VCView({ onBack }: Props) {
         </div>
       ))}
 
+      {/* Open Source Contributions */}
+      <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(0,255,65,0.02)', borderRadius: '10px', border: '1px solid rgba(0,255,65,0.08)' }}>
+        <div style={{ fontSize: '0.65rem', letterSpacing: '2px', color: '#00FF41', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+          ⑂ Open Source Contributions
+        </div>
+        {OSS_CONTRIBUTIONS.map((c) => (
+          <div key={c.project} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+            <div>
+              <span style={{ color: '#fff', fontWeight: 700, fontSize: '0.85rem' }}>{c.project}</span>
+              <span style={{ color: '#666', fontSize: '0.72rem', marginLeft: '0.5rem' }}>{c.description.slice(0, 60)}...</span>
+            </div>
+            <a href={c.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.7rem', color: '#00FF41', textDecoration: 'none', border: '1px solid rgba(0,255,65,0.3)', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
+              View ↗
+            </a>
+          </div>
+        ))}
+      </div>
+
       <div className="vc__footer">
-        All transactions verified on Anyadike Proof-of-Work Chain · Consensus: 100% · 4 years uptime
+        All transactions verified on Anyadike Proof-of-Work Chain · Consensus: 100% · {PROJECTS.length} projects · 4 years uptime
       </div>
     </div>
   );

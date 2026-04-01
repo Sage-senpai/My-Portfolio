@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-import { PROJECTS, EVENTS, SKILLS } from '../data/portfolio';
+import { PROJECTS, EVENTS, SKILLS, PROFILE } from '../data/portfolio';
 import BackButton from '../components/BackButton';
 import '../styles/views/_client.scss';
 
@@ -15,14 +15,17 @@ interface Props {
 
 const SKILLS_DATA = Object.entries(SKILLS).map(([subject, value]) => ({ subject, value }));
 
+const liveCount = PROJECTS.filter(p => p.status === 'LIVE').length;
+const ecoCount = [...new Set(PROJECTS.map(p => p.ecosystem))].filter(e => e !== 'web2').length;
+
 const TICKER_ITEMS = [
-  { text: 'DEPLOYMENTS: 10 LIVE', cyan: true },
-  { text: 'ECOSYSTEMS: 7 ACTIVE', cyan: false },
+  { text: `DEPLOYMENTS: ${liveCount} LIVE`, cyan: true },
+  { text: `ECOSYSTEMS: ${ecoCount} ACTIVE`, cyan: false },
   { text: 'REACH: 50K+', cyan: true },
   { text: 'POW: 9,847', cyan: false },
-  { text: 'UPTIME: 4 YEARS', cyan: true },
+  { text: 'UPTIME: 4+ YEARS', cyan: true },
   { text: 'STATUS: AVAILABLE', cyan: false },
-  { text: 'LOCATION: NSUKKA, NIGERIA', cyan: true },
+  { text: `LOCATION: ${PROFILE.location.toUpperCase()}`, cyan: true },
 ];
 
 const TIMELINE_COLORS = ['#00D4FF', '#9B5DE5', '#E6007A', '#00D395', '#F59E0B', '#FF6B6B', '#60A5FA'];
@@ -124,9 +127,9 @@ export default function ClientView({ onBack }: Props) {
           </div>
           <div className="client__metrics">
             {[
-              { value: '10', label: 'Projects' },
-              { value: '12', label: 'Events' },
-              { value: '7', label: 'Chains' },
+              { value: String(PROJECTS.length), label: 'Projects' },
+              { value: String(EVENTS.length), label: 'Events' },
+              { value: String(ecoCount), label: 'Chains' },
               { value: '50K+', label: 'Reach' },
             ].map((m) => (
               <div key={m.label} className="client__metric-box">
@@ -165,10 +168,10 @@ export default function ClientView({ onBack }: Props) {
           <div className="client__panel-title">◈ Comms Channel</div>
           <div className="client__contact-rows">
             {[
-              { label: 'EMAIL', value: 'anyadikedivine@gmail.com', href: 'mailto:anyadikedivine@gmail.com' },
-              { label: 'TWITTER', value: '@anaborejustin', href: 'https://twitter.com/anaborejustin' },
-              { label: 'GITHUB', value: 'Sage-senpai', href: 'https://github.com/Sage-senpai' },
-              { label: 'LINKEDIN', value: 'anyadikedivine', href: 'https://linkedin.com/in/anyadikedivine' },
+              { label: 'EMAIL', value: PROFILE.email, href: `mailto:${PROFILE.email}` },
+              { label: 'TWITTER', value: `@${PROFILE.twitter}`, href: `https://x.com/${PROFILE.twitter}` },
+              { label: 'GITHUB', value: PROFILE.github, href: `https://github.com/${PROFILE.github}` },
+              { label: 'LINKEDIN', value: PROFILE.linkedin, href: `https://linkedin.com/in/${PROFILE.linkedin}` },
             ].map((c) => (
               <div key={c.label} className="client__contact-row">
                 <span className="client__contact-label">{c.label}</span>
@@ -188,7 +191,7 @@ export default function ClientView({ onBack }: Props) {
             <button
               className="client__transmit-btn"
               onClick={() => {
-                window.location.href = `mailto:anyadikedivine@gmail.com?subject=Mission Request&body=${encodeURIComponent(message)}`;
+                window.location.href = `mailto:${PROFILE.email}?subject=Mission Request&body=${encodeURIComponent(message)}`;
               }}
             >
               TRANSMIT REQUEST
