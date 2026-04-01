@@ -135,8 +135,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     color: '#E6007A',
     icon: '⬡',
     description: 'Primary ecosystem — 9 shipped projects, ambassador, workshop lead, Sub0 speaker',
-    orbitRadius: 180,
-    angle: 45,
+    orbitRadius: 120,
+    angle: 270,
   },
   {
     id: '0g',
@@ -144,8 +144,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     color: '#00D395',
     icon: '◎',
     description: 'AI-native Layer 1 — decentralized storage, vector search, and AI-powered dApps',
-    orbitRadius: 130,
-    angle: 200,
+    orbitRadius: 160,
+    angle: 45,
   },
   {
     id: 'solana',
@@ -153,8 +153,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     color: '#9945FF',
     icon: '◈',
     description: 'High-performance chain — token-gated social platforms',
-    orbitRadius: 240,
-    angle: 120,
+    orbitRadius: 200,
+    angle: 135,
   },
   {
     id: 'stellar',
@@ -162,8 +162,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     color: '#7B61FF',
     icon: '✦',
     description: 'Soroban smart contract tooling and decentralized Web3 education',
-    orbitRadius: 290,
-    angle: 290,
+    orbitRadius: 240,
+    angle: 315,
   },
   {
     id: 'mandala',
@@ -171,8 +171,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     color: '#FF6B6B',
     icon: '⬢',
     description: 'Polkadot parachain — gamified onboarding for new Web3 users',
-    orbitRadius: 160,
-    angle: 340,
+    orbitRadius: 280,
+    angle: 200,
   },
   {
     id: 'mantle',
@@ -181,7 +181,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     icon: '▲',
     description: 'Real-world yield intelligence layer on Mantle L2',
     orbitRadius: 320,
-    angle: 170,
+    angle: 90,
   },
   {
     id: 'pacifica',
@@ -190,7 +190,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     icon: '◆',
     description: 'AI-driven liquidation cascade prediction and whale tracking',
     orbitRadius: 350,
-    angle: 60,
+    angle: 350,
   },
   {
     id: 'web2',

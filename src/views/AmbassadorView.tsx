@@ -3,7 +3,7 @@
 // DESCRIPTION: Ecosystem / Protocol — Solar System explorer with zoom-in
 // ============================================================================
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { ECOSYSTEMS, PROJECTS, OSS_CONTRIBUTIONS, PROFILE, type Ecosystem, type Project } from '../data/portfolio';
 import BackButton from '../components/BackButton';
 import '../styles/views/_ambassador.scss';
@@ -14,6 +14,22 @@ interface Props {
 
 export default function AmbassadorView({ onBack }: Props) {
   const [selectedEco, setSelectedEco] = useState<string | null>(null);
+  const systemRef = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState({ w: 900, h: 600 });
+
+  useEffect(() => {
+    const measure = () => {
+      if (systemRef.current) {
+        setContainerSize({
+          w: systemRef.current.clientWidth,
+          h: systemRef.current.clientHeight,
+        });
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
 
   const projectsByEco = useMemo(() => {
     const map: Record<string, Project[]> = {};
@@ -26,9 +42,15 @@ export default function AmbassadorView({ onBack }: Props) {
 
   const selectedEcosystem = ECOSYSTEMS.find((e) => e.id === selectedEco) || null;
   const selectedProjects = selectedEco ? projectsByEco[selectedEco] || [] : [];
-
   const totalProjects = PROJECTS.length;
   const totalEcosystems = ECOSYSTEMS.filter((e) => e.id !== 'web2').length;
+
+  // Scale orbit radii to fit container
+  const maxOrbit = Math.max(...ECOSYSTEMS.map((e) => e.orbitRadius));
+  const scaleFactor = Math.min(containerSize.w, containerSize.h) / (maxOrbit * 2 + 100);
+
+  const centerX = containerSize.w / 2;
+  const centerY = containerSize.h / 2;
 
   return (
     <div className="solar">
@@ -44,12 +66,33 @@ export default function AmbassadorView({ onBack }: Props) {
       </div>
 
       {/* Desktop: Solar System */}
-      <div className={`solar__system ${selectedEco ? 'solar__system--zoomed' : ''}`}>
+      <div className="solar__system" ref={systemRef}>
         {/* Star field */}
         <div className="solar__stars" />
 
+        {/* Orbit rings */}
+        {ECOSYSTEMS.map((eco) => {
+          const scaledR = eco.orbitRadius * scaleFactor;
+          return (
+            <div
+              key={`ring-${eco.id}`}
+              className="solar__orbit-ring"
+              style={{
+                width: scaledR * 2,
+                height: scaledR * 2,
+                left: centerX - scaledR,
+                top: centerY - scaledR,
+              }}
+            />
+          );
+        })}
+
         {/* Sun */}
-        <div className="solar__sun" onClick={() => setSelectedEco(null)}>
+        <div
+          className="solar__sun"
+          style={{ left: centerX, top: centerY }}
+          onClick={() => setSelectedEco(null)}
+        >
           <div className="solar__sun-glow" />
           <div className="solar__sun-core">
             <img src={PROFILE.profileImage} alt={PROFILE.name} className="solar__sun-img" />
@@ -57,54 +100,45 @@ export default function AmbassadorView({ onBack }: Props) {
           <span className="solar__sun-label">{PROFILE.name}</span>
         </div>
 
-        {/* Orbit rings + planets */}
-        {ECOSYSTEMS.map((eco, i) => {
+        {/* Planets — positioned with left/top, NOT transform */}
+        {ECOSYSTEMS.map((eco) => {
+          const scaledR = eco.orbitRadius * scaleFactor;
           const radian = (eco.angle * Math.PI) / 180;
-          const planetX = Math.cos(radian) * eco.orbitRadius;
-          const planetY = Math.sin(radian) * eco.orbitRadius;
+          const px = centerX + Math.cos(radian) * scaledR;
+          const py = centerY + Math.sin(radian) * scaledR;
           const projectCount = (projectsByEco[eco.id] || []).length;
+          const planetSize = Math.max(28, 20 + projectCount * 3);
 
           return (
-            <div key={eco.id}>
-              {/* Orbit ring */}
+            <button
+              key={eco.id}
+              className={`solar__planet ${selectedEco === eco.id ? 'solar__planet--active' : ''}`}
+              style={{
+                left: px,
+                top: py,
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedEco(selectedEco === eco.id ? null : eco.id);
+              }}
+            >
               <div
-                className="solar__orbit-ring"
+                className="solar__planet-body"
                 style={{
-                  width: eco.orbitRadius * 2,
-                  height: eco.orbitRadius * 2,
-                }}
-              />
-
-              {/* Planet */}
-              <button
-                className={`solar__planet ${selectedEco === eco.id ? 'solar__planet--active' : ''}`}
-                style={{
-                  transform: `translate(${planetX}px, ${planetY}px)`,
-                  animationDelay: `${i * 0.1}s`,
-                }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedEco(selectedEco === eco.id ? null : eco.id);
+                  background: `radial-gradient(circle at 35% 35%, ${eco.color}aa, ${eco.color}55, ${eco.color}22)`,
+                  border: `1.5px solid ${eco.color}88`,
+                  boxShadow: `0 0 24px ${eco.color}33, inset -3px -3px 6px ${eco.color}22`,
+                  width: planetSize,
+                  height: planetSize,
                 }}
               >
-                <div
-                  className="solar__planet-body"
-                  style={{
-                    background: `radial-gradient(circle at 35% 35%, ${eco.color}88, ${eco.color}44, ${eco.color}22)`,
-                    borderColor: eco.color,
-                    boxShadow: `0 0 20px ${eco.color}44, inset -4px -4px 8px ${eco.color}22`,
-                    width: 24 + projectCount * 4,
-                    height: 24 + projectCount * 4,
-                  }}
-                >
-                  <span className="solar__planet-icon">{eco.icon}</span>
-                </div>
-                <span className="solar__planet-name">{eco.name}</span>
-                <span className="solar__planet-count" style={{ color: eco.color }}>
-                  {projectCount}
-                </span>
-              </button>
-            </div>
+                <span className="solar__planet-icon">{eco.icon}</span>
+              </div>
+              <span className="solar__planet-name">{eco.name}</span>
+              <span className="solar__planet-count" style={{ color: eco.color }}>
+                {projectCount} {projectCount === 1 ? 'project' : 'projects'}
+              </span>
+            </button>
           );
         })}
       </div>
@@ -135,7 +169,7 @@ export default function AmbassadorView({ onBack }: Props) {
               {isOpen && (
                 <div className="solar__mobile-projects">
                   {projects.map((p) => (
-                    <MobileProjectCard key={p.id} project={p} accentColor={eco.color} />
+                    <ProjectCard key={p.id} project={p} accentColor={eco.color} />
                   ))}
                 </div>
               )}
@@ -147,7 +181,7 @@ export default function AmbassadorView({ onBack }: Props) {
         <div className="solar__mobile-card">
           <div className="solar__mobile-card-header" style={{ borderLeftColor: '#00FF41' }}>
             <div className="solar__mobile-card-left">
-              <span className="solar__mobile-icon" style={{ color: '#00FF41' }}>⑂</span>
+              <span className="solar__mobile-icon" style={{ color: '#00FF41' }}>&#9826;</span>
               <div>
                 <div className="solar__mobile-name">Open Source Contributions</div>
                 <div className="solar__mobile-desc">Forked repos with code contributions</div>
@@ -178,7 +212,7 @@ export default function AmbassadorView({ onBack }: Props) {
         </div>
       </div>
 
-      {/* Detail Panel (desktop) */}
+      {/* Detail Panel (desktop overlay) */}
       {selectedEcosystem && (
         <div className="solar__detail-panel" onClick={() => setSelectedEco(null)}>
           <div className="solar__detail-content" onClick={(e) => e.stopPropagation()}>
@@ -191,7 +225,7 @@ export default function AmbassadorView({ onBack }: Props) {
                   {selectedEcosystem.name}
                 </h2>
               </div>
-              <button className="solar__detail-close" onClick={() => setSelectedEco(null)}>✕</button>
+              <button className="solar__detail-close" onClick={() => setSelectedEco(null)}>&#10005;</button>
             </div>
             <p className="solar__detail-desc">{selectedEcosystem.description}</p>
 
@@ -201,7 +235,6 @@ export default function AmbassadorView({ onBack }: Props) {
               ))}
             </div>
 
-            {/* OSS in detail panel if showing polkadot or general */}
             {selectedEco === 'polkadot' && (
               <div className="solar__detail-oss">
                 <h3 className="solar__detail-oss-title">Open Source Contributions</h3>
@@ -230,7 +263,7 @@ export default function AmbassadorView({ onBack }: Props) {
   );
 }
 
-/* ── Project Card (desktop panel) ──────────────────────────────────────── */
+/* ── Project Card (shared) ─────────────────────────────────────────────── */
 
 function ProjectCard({ project, accentColor }: { project: Project; accentColor: string }) {
   return (
@@ -272,39 +305,6 @@ function ProjectCard({ project, accentColor }: { project: Project; accentColor: 
             className="solar__project-link solar__project-link--live"
           >
             Live Demo ↗
-          </a>
-        )}
-      </div>
-    </div>
-  );
-}
-
-/* ── Mobile Project Card ───────────────────────────────────────────────── */
-
-function MobileProjectCard({ project, accentColor }: { project: Project; accentColor: string }) {
-  return (
-    <div className="solar__project-card" style={{ borderColor: `${accentColor}20` }}>
-      <div className="solar__project-top">
-        <span className="solar__project-name">{project.name}</span>
-        <span className={`solar__project-status solar__project-status--${project.status.toLowerCase()}`}>
-          {project.status === 'LIVE' ? '● LIVE' : '○ WIP'}
-        </span>
-      </div>
-      <p className="solar__project-desc">{project.description}</p>
-      <div className="solar__project-tech">
-        {project.tech.slice(0, 3).map((t) => (
-          <span key={t} className="solar__project-tech-pill" style={{ background: `${accentColor}10`, color: `${accentColor}cc` }}>
-            {t}
-          </span>
-        ))}
-      </div>
-      <div className="solar__project-links">
-        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="solar__project-link" style={{ borderColor: accentColor, color: accentColor }}>
-          GitHub ↗
-        </a>
-        {project.liveUrl && project.liveUrl !== '#' && (
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="solar__project-link solar__project-link--live">
-            Live ↗
           </a>
         )}
       </div>
