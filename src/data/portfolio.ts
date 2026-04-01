@@ -93,6 +93,15 @@ export interface OSSContribution {
 
 export const PERSONAS: Persona[] = [
   {
+    id: 'portfolio',
+    label: 'Recruiter / General',
+    subtitle: 'Full Portfolio',
+    description:
+      'The complete picture — a polished scrollable portfolio with hero, about, skills, experience, shipped projects, content, and contact. Everything in one page.',
+    accent: '#C0182A',
+    glow: 'rgba(192,24,42,0.3)',
+  },
+  {
     id: 'vc',
     label: 'VC / Investor',
     subtitle: 'Chain-of-Proof Resume',
@@ -136,15 +145,6 @@ export const PERSONAS: Persona[] = [
       'A 3D tilt-responsive holographic badge with shimmer effects — flip it to see the full proof-of-work record. Download or print it.',
     accent: '#F59E0B',
     glow: 'rgba(245,158,11,0.3)',
-  },
-  {
-    id: 'portfolio',
-    label: 'Recruiter / General',
-    subtitle: 'Full Portfolio',
-    description:
-      'The complete picture — a polished scrollable portfolio with hero, about, skills, experience, shipped projects, content, and contact. Everything in one page.',
-    accent: '#C0182A',
-    glow: 'rgba(192,24,42,0.3)',
   },
 ];
 

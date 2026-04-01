@@ -156,7 +156,7 @@ export default function IdentitySelector({ onSelect }: Props) {
           return (
             <div
               key={p.id}
-              className="selector__card"
+              className={`selector__card${i === 0 ? ' selector__card--featured' : ''}`}
               style={{
                 animationDelay: `${0.08 * i}s`,
               }}
