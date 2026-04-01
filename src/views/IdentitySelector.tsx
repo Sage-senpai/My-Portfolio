@@ -104,12 +104,32 @@ function EventPreview() {
   );
 }
 
+function PortfolioPreview() {
+  return (
+    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0.5rem 0.75rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+        <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#C0182A', boxShadow: '0 0 6px rgba(192,24,42,0.5)' }} />
+        <span style={{ fontSize: '0.42rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(192,24,42,0.8)' }}>Web3 Developer</span>
+      </div>
+      <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '0.2rem' }}>
+        Anyadike<br /><span style={{ WebkitTextStroke: '0.5px rgba(192,24,42,0.7)', color: 'transparent' }}>Divine</span><span style={{ color: '#C0182A' }}>.</span>
+      </div>
+      <div style={{ display: 'flex', gap: '0.5rem' }}>
+        {['25+', '7', '4+'].map((n) => (
+          <span key={n} style={{ fontSize: '0.55rem', fontWeight: 800, color: 'rgba(192,24,42,0.7)' }}>{n}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const previews: Record<ViewId, React.ComponentType> = {
   vc: VCPreview,
   cto: CTOPreview,
   client: ClientPreview,
   ambassador: AmbassadorPreview,
   event: EventPreview,
+  portfolio: PortfolioPreview,
 };
 
 /* ── Main Component ──────────────────────────────────────────────────────── */

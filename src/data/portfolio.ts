@@ -3,7 +3,7 @@
 // DESCRIPTION: All typed portfolio content — sourced from real GitHub repos
 // ============================================================================
 
-export type ViewId = 'vc' | 'cto' | 'client' | 'ambassador' | 'event';
+export type ViewId = 'vc' | 'cto' | 'client' | 'ambassador' | 'event' | 'portfolio';
 
 export interface Persona {
   id: ViewId;
@@ -69,6 +69,19 @@ export interface GraphLink {
   target: string;
 }
 
+export interface Experience {
+  role: string;
+  org: string;
+  duration: string;
+  type: string | null;
+  impact: string;
+}
+
+export interface SkillCategory {
+  category: string;
+  items: { name: string; tier: 'primary' | 'secondary' }[];
+}
+
 export interface OSSContribution {
   project: string;
   repo: string;
@@ -123,6 +136,15 @@ export const PERSONAS: Persona[] = [
       'A 3D tilt-responsive holographic badge with shimmer effects — flip it to see the full proof-of-work record. Download or print it.',
     accent: '#F59E0B',
     glow: 'rgba(245,158,11,0.3)',
+  },
+  {
+    id: 'portfolio',
+    label: 'Recruiter / General',
+    subtitle: 'Full Portfolio',
+    description:
+      'The complete picture — a polished scrollable portfolio with hero, about, skills, experience, shipped projects, content, and contact. Everything in one page.',
+    accent: '#C0182A',
+    glow: 'rgba(192,24,42,0.3)',
   },
 ];
 
@@ -706,4 +728,109 @@ export const PROFILE = {
   portfolio: 'https://portfolio-dvyne.vercel.app',
   profileImage: '/profile.jpg',
   bio: 'Forward-thinking Web3 builder specializing in front-end engineering (React, Next.js, TypeScript) and decentralized application development. Shipped 25+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
+  aboutParagraphs: [
+    'I build at the intersection of frontend engineering, smart contracts, and community. My work spans creating decentralized applications, writing on-chain protocols, and fostering builder communities across multiple blockchain ecosystems.',
+    'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar — I ship real products that solve real problems. Every project you see is live, deployed, and functional.',
+    'Beyond code, I lead developer workshops, organize ecosystem meetups across Nigeria, produce technical content that reaches thousands, and actively contribute to open source. I believe the best builders are the ones who also teach.',
+  ],
 };
+
+// ── EXPERIENCES ─────────────────────────────────────────────────────────────
+
+export const EXPERIENCES: Experience[] = [
+  {
+    role: 'Web3 Frontend Developer & Ecosystem Builder',
+    org: 'Polkadot Ecosystem',
+    duration: '2022 – Present',
+    type: null,
+    impact:
+      'Shipped 9+ dApps on Polkadot including DOTique (NFT marketplace), DotVest (DeFi staking), SafePing (family safety), and EquiShare (fractional real estate). Led developer onboarding workshops for Substrate, PAPI, and XCM architecture. Built community infrastructure serving builders across West Africa.',
+  },
+  {
+    role: 'AI + Web3 Developer',
+    org: '0G Network',
+    duration: '2025 – Present',
+    type: null,
+    impact:
+      'Built LoreLich (AI-powered ancestral story preservation), Abobi (multilingual immigration legal aid), and a decentralized HNSW vector search engine. Led developer onboarding sessions for the AI-native chain architecture at ETF hackathon.',
+  },
+  {
+    role: 'Frontend Developer & Community Organizer',
+    org: 'Sui Ecosystem',
+    duration: '2025 – Present',
+    type: null,
+    impact:
+      'Organized Sui-Move Developer Workshops and grew the developer network in Southeast Nigeria. Co-led Move language workshop series on resource-oriented programming patterns.',
+  },
+  {
+    role: 'Smart Contract Developer',
+    org: 'Stellar / Soroban',
+    duration: '2026 – Present',
+    type: null,
+    impact:
+      'Built Stellar Suite — a complete Soroban smart contract development toolkit — and ChainVerse, a decentralized Web3 education platform with crypto payments, NFT certifications, and DAO governance.',
+  },
+  {
+    role: 'Hackathon Competitor & Workshop Lead',
+    org: 'Multiple Ecosystems',
+    duration: '2023 – Present',
+    type: null,
+    impact:
+      '13+ events attended across hackathons, workshops, meetups, and conferences. Led IoT & Smart Agriculture workshops, participated in GPU deep learning training at NVIDIA × UNN, and presented shipped DeFi platforms at engineering showcases.',
+  },
+  {
+    role: 'Community Manager & Content Creator',
+    org: 'Web3 Organizations',
+    duration: '2022 – Present',
+    type: 'Ongoing',
+    impact:
+      'Produced technical threads, ecosystem deep dives, and builder guides reaching 50K+ impressions. Managed community onboarding, organized Twitter/X Spaces, and served as communication bridge between project teams and their communities.',
+  },
+];
+
+// ── SKILL CATEGORIES (for full portfolio view) ──────────────────────────────
+
+export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    category: 'Frontend Engineering',
+    items: [
+      { name: 'React / Next.js', tier: 'primary' },
+      { name: 'TypeScript', tier: 'primary' },
+      { name: 'Component Architecture', tier: 'primary' },
+      { name: 'SCSS / Tailwind', tier: 'primary' },
+      { name: 'Framer Motion', tier: 'secondary' },
+      { name: 'Responsive Design', tier: 'secondary' },
+    ],
+  },
+  {
+    category: 'Smart Contracts & Blockchain',
+    items: [
+      { name: 'Polkadot.js / PAPI', tier: 'primary' },
+      { name: 'Substrate / ink!', tier: 'primary' },
+      { name: 'Solidity', tier: 'primary' },
+      { name: 'Move (Sui)', tier: 'secondary' },
+      { name: 'Soroban (Stellar)', tier: 'secondary' },
+      { name: 'Anchor (Solana)', tier: 'secondary' },
+    ],
+  },
+  {
+    category: 'Community & Content',
+    items: [
+      { name: 'Community Building', tier: 'primary' },
+      { name: 'Technical Writing', tier: 'primary' },
+      { name: 'Workshop Facilitation', tier: 'primary' },
+      { name: 'Event Organization', tier: 'secondary' },
+      { name: 'Twitter/X Strategy', tier: 'secondary' },
+    ],
+  },
+  {
+    category: 'Tools & Infrastructure',
+    items: [
+      { name: 'Git & Version Control', tier: 'primary' },
+      { name: 'Vercel / CI-CD', tier: 'primary' },
+      { name: 'D3.js / Recharts', tier: 'secondary' },
+      { name: 'Arduino / IoT', tier: 'secondary' },
+      { name: 'Figma', tier: 'secondary' },
+    ],
+  },
+];

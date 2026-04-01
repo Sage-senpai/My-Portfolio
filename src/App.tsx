@@ -13,6 +13,7 @@ import CTOView from './views/CTOView';
 import ClientView from './views/ClientView';
 import AmbassadorView from './views/AmbassadorView';
 import EventView from './views/EventView';
+import FullPortfolioView from './views/FullPortfolioView';
 
 import type { ViewId } from './data/portfolio';
 
@@ -22,6 +23,7 @@ const viewMap: Record<ViewId, React.ComponentType<{ onBack: () => void }>> = {
   client: ClientView,
   ambassador: AmbassadorView,
   event: EventView,
+  portfolio: FullPortfolioView,
 };
 
 const transition = {
