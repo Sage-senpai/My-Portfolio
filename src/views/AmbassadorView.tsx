@@ -11,21 +11,22 @@ import '../styles/views/_ambassador.scss';
 
 interface Props { onBack: () => void; }
 
-const ORBIT_CONFIG: Record<string, { size: number; speed: number; planetSize: number }> = {
-  polkadot:  { size: 14, speed: 0.5, planetSize: 3.2 },
-  '0g':      { size: 20, speed: 0.8, planetSize: 2.6 },
-  solana:    { size: 26, speed: 1.1, planetSize: 2.4 },
-  stellar:   { size: 32, speed: 1.5, planetSize: 2.2 },
-  mandala:   { size: 38, speed: 2.0, planetSize: 2.0 },
-  mantle:    { size: 44, speed: 2.5, planetSize: 2.2 },
-  pacifica:  { size: 50, speed: 3.0, planetSize: 1.8 },
-  web2:      { size: 56, speed: 3.8, planetSize: 2.0 },
+const ORBIT_CONFIG: Record<string, { size: number; speed: number; planetSize: number; startAngle: number }> = {
+  polkadot:  { size: 18, speed: 0.5,  planetSize: 3.5, startAngle: 220 },
+  '0g':      { size: 26, speed: 0.8,  planetSize: 2.8, startAngle: 45  },
+  solana:    { size: 34, speed: 1.1,  planetSize: 2.6, startAngle: 310 },
+  stellar:   { size: 42, speed: 1.5,  planetSize: 2.4, startAngle: 140 },
+  mandala:   { size: 50, speed: 2.0,  planetSize: 2.2, startAngle: 270 },
+  mantle:    { size: 58, speed: 2.5,  planetSize: 2.4, startAngle: 80  },
+  pacifica:  { size: 66, speed: 3.0,  planetSize: 2.0, startAngle: 190 },
+  web2:      { size: 74, speed: 3.8,  planetSize: 2.2, startAngle: 350 },
 };
-const BASE_SPEED = 24;
+const BASE_SPEED = 30;
 
 export default function AmbassadorView({ onBack }: Props) {
   const [selectedEco, setSelectedEco] = useState<string | null>(null);
   const [hoveredMoon, setHoveredMoon] = useState<string | null>(null);
+  const [mobile3D, setMobile3D] = useState(false);
 
   const projectsByEco = useMemo(() => {
     const map: Record<string, Project[]> = {};
@@ -83,9 +84,13 @@ export default function AmbassadorView({ onBack }: Props) {
                       marginTop: `-${cfg.size / 2}em`,
                       marginLeft: `-${cfg.size / 2}em`,
                       animationDuration: `${duration}s`,
+                      animationDelay: `-${(duration * cfg.startAngle) / 360}s`,
                     }}
                   >
-                    <div className="solar__pos" style={{ animationDuration: `${duration}s` }}>
+                    <div className="solar__pos" style={{
+                      animationDuration: `${duration}s`,
+                      animationDelay: `-${(duration * cfg.startAngle) / 360}s`,
+                    }}>
                       {/* Planet — CSS gradient sphere + ecosystem logo */}
                       <div
                         className={`solar__planet ${isSelected ? 'solar__planet--selected' : ''}`}
@@ -180,8 +185,97 @@ export default function AmbassadorView({ onBack }: Props) {
         </div>
       </div>
 
+      {/* ═══ MOBILE 3D FULLSCREEN ═══ */}
+      {mobile3D && (
+        <div className="solar__mobile-3d">
+          <button className="solar__mobile-3d-close" onClick={() => { setMobile3D(false); setSelectedEco(null); }}>
+            ✕ Exit 3D View
+          </button>
+          <div className="solar__mobile-3d-hint">Rotate your phone to landscape for best view</div>
+          <div className="solar__universe">
+            <div className="solar__galaxy">
+              <div className={`solar__system ${selectedEco ? 'solar__system--paused' : ''}`}>
+                <div className="solar__sun">
+                  <img src={PROFILE.profileImage} alt={PROFILE.name} className="solar__sun-photo" />
+                </div>
+                {ECOSYSTEMS.map((eco) => {
+                  const cfg = ORBIT_CONFIG[eco.id] || { size: 40, speed: 2, planetSize: 2.5, startAngle: 0 };
+                  const projects = projectsByEco[eco.id] || [];
+                  const isSelected = selectedEco === eco.id;
+                  const duration = BASE_SPEED * cfg.speed;
+                  return (
+                    <div key={eco.id} className={`solar__orbit ${isSelected ? 'solar__orbit--active' : ''}`}
+                      style={{
+                        width: `${cfg.size}em`, height: `${cfg.size}em`,
+                        marginTop: `-${cfg.size / 2}em`, marginLeft: `-${cfg.size / 2}em`,
+                        animationDuration: `${duration}s`,
+                        animationDelay: `-${(duration * cfg.startAngle) / 360}s`,
+                      }}>
+                      <div className="solar__pos" style={{
+                        animationDuration: `${duration}s`,
+                        animationDelay: `-${(duration * cfg.startAngle) / 360}s`,
+                      }}>
+                        <div className={`solar__planet ${isSelected ? 'solar__planet--selected' : ''}`}
+                          style={{
+                            width: `${cfg.planetSize}em`, height: `${cfg.planetSize}em`,
+                            marginTop: `-${cfg.planetSize / 2}em`, marginLeft: `-${cfg.planetSize / 2}em`,
+                            background: `radial-gradient(circle at 30% 30%, ${eco.color}ee, ${eco.color}88 45%, ${eco.color}33 75%, ${eco.color}11)`,
+                            boxShadow: `0 0 15px ${eco.color}44`,
+                          }}
+                          onClick={(e) => { e.stopPropagation(); setSelectedEco(isSelected ? null : eco.id); }}>
+                          <img src={eco.logo} alt={eco.name} className="solar__planet-logo" />
+                        </div>
+                        <div className="solar__planet-info">
+                          <span className="solar__planet-name" style={{ color: eco.color }}>{eco.name}</span>
+                          <span className="solar__planet-count">{projects.length} projects</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          {selectedEcosystem && (
+            <div className="solar__panel" onClick={(e) => e.stopPropagation()}>
+              <div className="solar__panel-header">
+                <div className="solar__panel-title-row">
+                  <img src={selectedEcosystem.logo} alt="" className="solar__panel-logo" />
+                  <div>
+                    <h2 className="solar__panel-title" style={{ color: selectedEcosystem.color }}>{selectedEcosystem.name}</h2>
+                    <p className="solar__panel-desc">{selectedEcosystem.description}</p>
+                  </div>
+                </div>
+                <button className="solar__panel-close" onClick={() => setSelectedEco(null)}>✕</button>
+              </div>
+              <div className="solar__panel-list">
+                {selectedProjects.map((p) => (
+                  <div key={p.id} className="solar__panel-project">
+                    <div className="solar__panel-project-top">
+                      <span className="solar__panel-project-name">{p.name}</span>
+                      <span className={`solar__panel-project-status ${p.status === 'LIVE' ? 'solar__panel-project-status--live' : 'solar__panel-project-status--wip'}`}>
+                        {p.status === 'LIVE' ? '● LIVE' : '○ WIP'}
+                      </span>
+                    </div>
+                    <span className="solar__panel-project-type" style={{ color: selectedEcosystem.color }}>{p.type}</span>
+                    <p className="solar__panel-project-desc">{p.description}</p>
+                    <div className="solar__panel-project-links">
+                      {p.githubUrl !== '#' && <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: selectedEcosystem.color }}>GitHub ↗</a>}
+                      {p.liveUrl !== '#' && <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="solar__panel-link-live">Live ↗</a>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* ═══ MOBILE ═══ */}
       <div className="solar__mobile-grid">
+        <button className="solar__mobile-3d-btn" onClick={() => setMobile3D(true)}>
+          View 3D Solar System (Landscape)
+        </button>
         {ECOSYSTEMS.map((eco) => {
           const projects = projectsByEco[eco.id] || [];
           const isOpen = selectedEco === eco.id;
