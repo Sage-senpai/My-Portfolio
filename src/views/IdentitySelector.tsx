@@ -27,7 +27,7 @@ function CTOPreview() {
     <div style={{ fontFamily: "'Courier New', monospace", fontSize: '0.6rem', lineHeight: 1.8, color: '#00FF41', width: '100%' }}>
       <div>DIVINE-OS v2.1.0</div>
       <div style={{ color: '#fff' }}>❯ whoami</div>
-      <div>Web3 Architect</div>
+      <div>Full Stack Web3 Engineer</div>
     </div>
   );
 }
@@ -35,7 +35,7 @@ function CTOPreview() {
 function ClientPreview() {
   return (
     <div style={{ display: 'flex', gap: '0.5rem', width: '100%', justifyContent: 'center' }}>
-      {[['25', 'Projects'], ['13', 'Events'], ['7', 'Chains']].map(([val, label]) => (
+      {[['27', 'Projects'], ['13', 'Events'], ['7', 'Chains']].map(([val, label]) => (
         <div key={label} style={{
           textAlign: 'center', padding: '0.4rem 0.6rem',
           background: 'rgba(0,212,255,0.05)', borderRadius: '6px',
@@ -109,7 +109,7 @@ function PortfolioPreview() {
     <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0.5rem 0.75rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
         <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#C0182A', boxShadow: '0 0 6px rgba(192,24,42,0.5)' }} />
-        <span style={{ fontSize: '0.42rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(192,24,42,0.8)' }}>Web3 Developer</span>
+        <span style={{ fontSize: '0.42rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(192,24,42,0.8)' }}>Full Stack Engineer</span>
       </div>
       <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '0.2rem' }}>
         Anyadike<br /><span style={{ WebkitTextStroke: '0.5px rgba(192,24,42,0.7)', color: 'transparent' }}>Divine</span><span style={{ color: '#C0182A' }}>.</span>

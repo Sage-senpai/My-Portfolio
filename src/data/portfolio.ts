@@ -574,6 +574,36 @@ export const PROJECTS: Project[] = [
     liveUrl: '#',
   },
   {
+    id: 'theupherroom',
+    name: 'The Upher Room',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'Website',
+    status: 'LIVE',
+    impact: 'Full-stack platform — lead developer',
+    txnHash: '0xUPH3R0...7a8b',
+    tech: ['React', 'Node.js', 'TypeScript', 'Full Stack'],
+    description:
+      'Full-stack web platform built as lead developer. End-to-end architecture spanning frontend UI, backend API, database design, and deployment — demonstrating complete ownership of the development lifecycle from concept to production.',
+    githubUrl: '#',
+    liveUrl: 'https://theupherroom.com',
+  },
+  {
+    id: 'bunmicollection',
+    name: 'Bunmi Collection',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'E-commerce',
+    status: 'LIVE',
+    impact: 'Shopify e-commerce — lead developer',
+    txnHash: '0xBUNM10...9c1d',
+    tech: ['Shopify', 'Liquid', 'JavaScript', 'E-commerce'],
+    description:
+      'Custom Shopify e-commerce store built as lead developer for Bunmi Collection. Full storefront design, product catalog architecture, payment integration, and custom theme development delivering a polished shopping experience.',
+    githubUrl: '#',
+    liveUrl: 'https://bunmicollection.com',
+  },
+  {
     id: 'ghostpass',
     name: 'GhostPass',
     chain: 'Multi-chain',
@@ -660,7 +690,7 @@ export const EVENTS: EventEntry[] = [
 // ── SKILLS ──────────────────────────────────────────────────────────────────
 
 export const SKILLS: Record<string, number> = {
-  Frontend: 92,
+  'Full Stack': 92,
   'Smart Contracts': 78,
   Community: 95,
   Writing: 88,
@@ -719,7 +749,7 @@ export const CONTENT_PIECES: ContentPiece[] = [
 
 export const PROFILE = {
   name: 'Anyadike Divine',
-  role: 'Web3 Developer · Smart Contract Engineer · Community Manager',
+  role: 'Full Stack Web3 Engineer · Smart Contract Developer · Community Manager',
   location: 'Nsukka, Nigeria',
   email: 'anyadikedivine@gmail.com',
   twitter: 'sage_senpeak',
@@ -727,9 +757,9 @@ export const PROFILE = {
   linkedin: 'anyadikedivine',
   portfolio: 'https://portfolio-dvyne.vercel.app',
   profileImage: '/profile.jpg',
-  bio: 'Forward-thinking Web3 builder specializing in front-end engineering (React, Next.js, TypeScript) and decentralized application development. Shipped 25+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
+  bio: 'Full stack Web3 engineer shipping production-grade decentralized applications end-to-end — frontend, backend, and smart contracts. 27+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Lead developer on client builds including e-commerce (Shopify) and full-stack platforms. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
   aboutParagraphs: [
-    'I build at the intersection of frontend engineering, smart contracts, and community. My work spans creating decentralized applications, writing on-chain protocols, and fostering builder communities across multiple blockchain ecosystems.',
+    'I build full stack — frontend, backend, smart contracts, and everything in between. My work spans creating complete decentralized applications end-to-end, writing on-chain protocols, deploying production infrastructure, and fostering builder communities across multiple blockchain ecosystems.',
     'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar — I ship real products that solve real problems. Every project you see is live, deployed, and functional.',
     'Beyond code, I lead developer workshops, organize ecosystem meetups across Nigeria, produce technical content that reaches thousands, and actively contribute to open source. I believe the best builders are the ones who also teach.',
   ],
@@ -739,7 +769,7 @@ export const PROFILE = {
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: 'Web3 Frontend Developer & Ecosystem Builder',
+    role: 'Full Stack Web3 Developer & Ecosystem Builder',
     org: 'Polkadot Ecosystem',
     duration: '2022 – Present',
     type: null,
@@ -755,7 +785,7 @@ export const EXPERIENCES: Experience[] = [
       'Built LoreLich (AI-powered ancestral story preservation), Abobi (multilingual immigration legal aid), and a decentralized HNSW vector search engine. Led developer onboarding sessions for the AI-native chain architecture at ETF hackathon.',
   },
   {
-    role: 'Frontend Developer & Community Organizer',
+    role: 'Full Stack Developer & Community Organizer',
     org: 'Sui Ecosystem',
     duration: '2025 – Present',
     type: null,
@@ -792,7 +822,7 @@ export const EXPERIENCES: Experience[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: 'Frontend Engineering',
+    category: 'Full Stack Engineering',
     items: [
       { name: 'React / Next.js', tier: 'primary' },
       { name: 'TypeScript', tier: 'primary' },

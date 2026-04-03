@@ -228,7 +228,7 @@ export default function FullPortfolioView({ onBack }: Props) {
           <div className="fp__hero-left">
             <div className="fp__hero-badge fp__hero-anim fp__hero-anim--1">
               <div className="fp__hero-badge-dot" />
-              <span>Web3 Developer · Smart Contract Engineer · Community Manager</span>
+              <span>Full Stack Web3 Engineer · Smart Contract Developer · Community Manager</span>
             </div>
 
             <h1 className="fp__hero-h1 fp__hero-anim fp__hero-anim--2">
@@ -298,7 +298,7 @@ export default function FullPortfolioView({ onBack }: Props) {
             <FadeIn delay={0.2}>
               <div className="fp__about-pillars">
                 {[
-                  ['Frontend', 'React · TypeScript · Vite'],
+                  ['Full Stack', 'React · Node.js · TypeScript'],
                   ['Smart Contracts', 'Substrate · Solidity · Move'],
                   ['Community', 'Workshops · Events · Content'],
                   ['Ecosystems', 'Polkadot · 0G · Sui · Stellar'],
@@ -459,7 +459,7 @@ export default function FullPortfolioView({ onBack }: Props) {
                 Ready to build<br /><span className="fp__accent">something together?</span>
               </h2>
               <p className="fp__contact-desc">
-                Whether you need a frontend engineer, a smart contract developer, a community manager,
+                Whether you need a full stack engineer, a smart contract developer, a community manager,
                 or all three — let's talk.
               </p>
 
@@ -504,7 +504,7 @@ export default function FullPortfolioView({ onBack }: Props) {
         <div className="fp__footer-inner">
           <div className="fp__footer-left">
             <span className="fp__footer-brand">AD<span className="fp__accent">.</span></span>
-            <span className="fp__footer-tagline">Web3 Developer · Smart Contract Engineer · Community Manager</span>
+            <span className="fp__footer-tagline">Full Stack Web3 Engineer · Smart Contract Developer · Community Manager</span>
           </div>
           <div className="fp__footer-links">
             {[

@@ -134,7 +134,7 @@ export default function EventView({ onBack }: Props) {
               </div>
               <div className="event__name-block">
                 <span className="event__card-name">ANYADIKE DIVINE</span>
-                <span className="event__card-role">Web3 Frontend Architect</span>
+                <span className="event__card-role">Full Stack Web3 Engineer</span>
               </div>
             </div>
 
@@ -250,7 +250,7 @@ export default function EventView({ onBack }: Props) {
             </div>
             <div className="event__name-block">
               <span className="event__card-name">ANYADIKE DIVINE</span>
-              <span className="event__card-role">Web3 Frontend Architect</span>
+              <span className="event__card-role">Full Stack Web3 Engineer</span>
             </div>
           </div>
           <div className="event__tags-row">

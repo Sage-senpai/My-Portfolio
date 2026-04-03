@@ -16,7 +16,7 @@ export default function HeroSection(): JSX.Element {
         <div className="hero-profile-wrap" data-aos="zoom-in" data-aos-delay="200">
           <img
             src="/profile.jpg"
-            alt="Anyadike Divine — Web3 Frontend Architect"
+            alt="Anyadike Divine — Full Stack Web3 Engineer"
             className="hero-profile-img"
           />
         </div>
