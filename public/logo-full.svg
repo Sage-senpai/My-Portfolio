@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180">
+  <defs>
+    <linearGradient id="gf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9B5DE5"/>
+      <stop offset="100%" stop-color="#E6007A"/>
+    </linearGradient>
+    <linearGradient id="gt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9B5DE5"/>
+      <stop offset="100%" stop-color="#E6007A"/>
+    </linearGradient>
+    <filter id="gl">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ─── Icon mark (scaled) ─── -->
+  <g transform="translate(12, 6) scale(0.33)">
+    <path d="M256 28 L460 144 L460 368 L256 484 L52 368 L52 144 Z"
+          fill="none" stroke="url(#gf)" stroke-width="6" opacity="0.25"/>
+    <path d="M152 108 L296 108 L356 132 L396 180 L412 248 L412 272
+             L396 340 L356 386 L296 410 L152 410 Z
+             M200 160 L200 358 L280 358 L322 340 L348 304 L356 260
+             L356 248 L348 208 L322 172 L280 160 Z"
+          fill="url(#gf)" fill-rule="evenodd"/>
+    <circle cx="296" cy="108" r="7" fill="#fff" opacity="0.85" filter="url(#gl)"/>
+    <circle cx="412" cy="260" r="7" fill="#fff" opacity="0.85" filter="url(#gl)"/>
+    <line x1="296" y1="108" x2="340" y2="80" stroke="#9B5DE5" stroke-width="2" opacity="0.4"/>
+    <circle cx="340" cy="80" r="3" fill="#9B5DE5" opacity="0.5"/>
+    <line x1="412" y1="260" x2="448" y2="260" stroke="#E6007A" stroke-width="2" opacity="0.4"/>
+    <circle cx="448" cy="260" r="3" fill="#E6007A" opacity="0.5"/>
+  </g>
+
+  <!-- ─── "dvyne" lettering ─── -->
+  <g fill="url(#gt)">
+    <!-- d: lowercase with ascender — bowl at bottom, stem rises -->
+    <path d="M270 40 L282 40 L282 152 L270 152 L270 144 Q262 154 246 154
+             Q222 154 222 130 L222 86 Q222 62 246 62 Q262 62 270 72 Z
+             M270 88 Q270 74 250 74 Q234 74 234 88 L234 128
+             Q234 142 250 142 Q270 142 270 128 Z"/>
+    <!-- v -->
+    <path d="M302 64 L328 146 L354 64 L368 64 L336 154 L320 154 L288 64 Z"/>
+    <!-- y -->
+    <path d="M384 64 L410 136 L436 64 L450 64 L418 154 L412 168
+             Q406 180 392 180 L384 180 L384 168 L392 168 Q400 168 404 158
+             L408 148 L372 64 Z"/>
+    <!-- n -->
+    <path d="M470 64 L482 64 L482 72 Q490 62 506 62 Q528 62 528 86 L528 152
+             L516 152 L516 88 Q516 74 502 74 Q486 74 482 86 L482 152 L470 152 Z"/>
+    <!-- e -->
+    <path d="M552 108 Q552 62 582 62 Q612 62 612 94 L612 112 L564 112
+             Q566 140 586 140 Q604 140 608 126 L620 126 Q614 154 586 154
+             Q552 154 552 128 Z
+             M564 100 L600 100 L600 92 Q600 74 584 74 Q566 74 564 92 Z"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="222" y="176" font-family="system-ui, -apple-system, sans-serif"
+        font-size="10" letter-spacing="4" fill="#555">WEB3 DEVELOPER</text>
+</svg>
