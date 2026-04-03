@@ -12,14 +12,14 @@ import '../styles/views/_ambassador.scss';
 interface Props { onBack: () => void; }
 
 const ORBIT_CONFIG: Record<string, { size: number; speed: number; planetSize: number }> = {
-  polkadot:  { size: 30, speed: 0.5, planetSize: 5 },
-  '0g':      { size: 42, speed: 0.8, planetSize: 3.8 },
-  solana:    { size: 54, speed: 1.1, planetSize: 3.5 },
-  stellar:   { size: 66, speed: 1.5, planetSize: 3.0 },
-  mandala:   { size: 78, speed: 2.0, planetSize: 2.8 },
-  mantle:    { size: 92, speed: 2.5, planetSize: 3.2 },
-  pacifica:  { size: 106, speed: 3.0, planetSize: 2.6 },
-  web2:      { size: 120, speed: 3.8, planetSize: 2.8 },
+  polkadot:  { size: 14, speed: 0.5, planetSize: 3.2 },
+  '0g':      { size: 20, speed: 0.8, planetSize: 2.6 },
+  solana:    { size: 26, speed: 1.1, planetSize: 2.4 },
+  stellar:   { size: 32, speed: 1.5, planetSize: 2.2 },
+  mandala:   { size: 38, speed: 2.0, planetSize: 2.0 },
+  mantle:    { size: 44, speed: 2.5, planetSize: 2.2 },
+  pacifica:  { size: 50, speed: 3.0, planetSize: 1.8 },
+  web2:      { size: 56, speed: 3.8, planetSize: 2.0 },
 };
 const BASE_SPEED = 24;
 
@@ -62,7 +62,7 @@ export default function AmbassadorView({ onBack }: Props) {
             <div className={`solar__system ${selectedEco ? 'solar__system--paused' : ''}`}>
 
               {/* Sun — profile image with glow */}
-              <div className="solar__sun" style={{ backgroundImage: 'url(/sun.png)' }}>
+              <div className="solar__sun">
                 <img src={PROFILE.profileImage} alt={PROFILE.name} className="solar__sun-photo" />
               </div>
 
@@ -86,7 +86,7 @@ export default function AmbassadorView({ onBack }: Props) {
                     }}
                   >
                     <div className="solar__pos" style={{ animationDuration: `${duration}s` }}>
-                      {/* Planet with texture */}
+                      {/* Planet — CSS gradient sphere + ecosystem logo */}
                       <div
                         className={`solar__planet ${isSelected ? 'solar__planet--selected' : ''}`}
                         style={{
@@ -94,8 +94,8 @@ export default function AmbassadorView({ onBack }: Props) {
                           height: `${cfg.planetSize}em`,
                           marginTop: `-${cfg.planetSize / 2}em`,
                           marginLeft: `-${cfg.planetSize / 2}em`,
-                          backgroundImage: `url(${eco.planetTexture})`,
-                          boxShadow: `0 0 ${isSelected ? 40 : 15}px ${eco.color}44`,
+                          background: `radial-gradient(circle at 30% 30%, ${eco.color}ee, ${eco.color}88 45%, ${eco.color}33 75%, ${eco.color}11)`,
+                          boxShadow: `0 0 ${isSelected ? 40 : 15}px ${eco.color}44, inset -${cfg.planetSize * 0.15}em -${cfg.planetSize * 0.1}em ${cfg.planetSize * 0.3}em ${eco.color}33`,
                         }}
                         onClick={(e) => {
                           e.stopPropagation();
@@ -113,71 +113,7 @@ export default function AmbassadorView({ onBack }: Props) {
                         <span className="solar__planet-count">{projects.length} projects</span>
                       </div>
 
-                      {/* Moon orbits — only when selected */}
-                      {isSelected && selectedProjects.map((p, mi) => {
-                        const moonOrbitSize = cfg.planetSize + 3.5 + mi * 2.4;
-                        const moonSpeed = 8 + mi * 2.5;
-                        const moonAngle = (360 / selectedProjects.length) * mi;
-                        const isHovered = hoveredMoon === p.id;
-
-                        return (
-                          <div
-                            key={p.id}
-                            className="solar__moon-orbit"
-                            style={{
-                              width: `${moonOrbitSize}em`,
-                              height: `${moonOrbitSize}em`,
-                              marginTop: `-${moonOrbitSize / 2}em`,
-                              marginLeft: `-${moonOrbitSize / 2}em`,
-                              animationDuration: `${moonSpeed}s`,
-                              animationDelay: `-${(moonSpeed / 360) * moonAngle}s`,
-                            }}
-                          >
-                            <div className="solar__moon-pos" style={{ animationDuration: `${moonSpeed}s` }}>
-                              <div
-                                className={`solar__moon ${isHovered ? 'solar__moon--hovered' : ''}`}
-                                onMouseEnter={() => setHoveredMoon(p.id)}
-                                onMouseLeave={() => setHoveredMoon(null)}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  const url = p.liveUrl !== '#' ? p.liveUrl : p.githubUrl !== '#' ? p.githubUrl : null;
-                                  if (url) window.open(url, '_blank', 'noopener noreferrer');
-                                }}
-                              >
-                                <span className="solar__moon-dot" style={{
-                                  background: p.status === 'LIVE' ? '#00D395' : '#F59E0B',
-                                }} />
-                                <span className="solar__moon-label">{p.name}</span>
-                              </div>
-
-                              {isHovered && (
-                                <div className="solar__tooltip" style={{ borderColor: `${eco.color}44` }}>
-                                  <div className="solar__tooltip-head">
-                                    <span className="solar__tooltip-title">{p.name}</span>
-                                    <span className="solar__tooltip-meta" style={{ color: eco.color }}>{p.type} · {p.status}</span>
-                                  </div>
-                                  <p className="solar__tooltip-desc">{p.description}</p>
-                                  <div className="solar__tooltip-tech">
-                                    {p.tech.slice(0, 4).map((t) => (
-                                      <span key={t} style={{ borderColor: `${eco.color}33`, color: `${eco.color}cc` }}>{t}</span>
-                                    ))}
-                                  </div>
-                                  <div className="solar__tooltip-links">
-                                    {p.githubUrl !== '#' && (
-                                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: eco.color }}
-                                         onClick={(e) => e.stopPropagation()}>GitHub ↗</a>
-                                    )}
-                                    {p.liveUrl !== '#' && (
-                                      <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="solar__tooltip-live"
-                                         onClick={(e) => e.stopPropagation()}>Live ↗</a>
-                                    )}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                      {/* No moons in the 3D view — detail panel handles it */}
                     </div>
                   </div>
                 );
@@ -186,10 +122,47 @@ export default function AmbassadorView({ onBack }: Props) {
           </div>
         </div>
 
-        {selectedEco && (
-          <button className="solar__zoom-out" onClick={() => { setSelectedEco(null); setHoveredMoon(null); }}>
-            ← Back to Solar System
-          </button>
+        {/* Detail panel — slides in from right when a planet is selected */}
+        {selectedEcosystem && (
+          <div className="solar__panel" onClick={(e) => e.stopPropagation()}>
+            <div className="solar__panel-header">
+              <div className="solar__panel-title-row">
+                <img src={selectedEcosystem.logo} alt="" className="solar__panel-logo" />
+                <div>
+                  <h2 className="solar__panel-title" style={{ color: selectedEcosystem.color }}>{selectedEcosystem.name}</h2>
+                  <p className="solar__panel-desc">{selectedEcosystem.description}</p>
+                </div>
+              </div>
+              <button className="solar__panel-close" onClick={() => setSelectedEco(null)}>✕</button>
+            </div>
+            <div className="solar__panel-list">
+              {selectedProjects.map((p) => (
+                <div key={p.id} className="solar__panel-project">
+                  <div className="solar__panel-project-top">
+                    <span className="solar__panel-project-name">{p.name}</span>
+                    <span className={`solar__panel-project-status ${p.status === 'LIVE' ? 'solar__panel-project-status--live' : 'solar__panel-project-status--wip'}`}>
+                      {p.status === 'LIVE' ? '● LIVE' : '○ WIP'}
+                    </span>
+                  </div>
+                  <span className="solar__panel-project-type" style={{ color: selectedEcosystem.color }}>{p.type}</span>
+                  <p className="solar__panel-project-desc">{p.description}</p>
+                  <div className="solar__panel-project-tech">
+                    {p.tech.slice(0, 4).map((t) => (
+                      <span key={t} style={{ borderColor: `${selectedEcosystem.color}33`, color: `${selectedEcosystem.color}bb` }}>{t}</span>
+                    ))}
+                  </div>
+                  <div className="solar__panel-project-links">
+                    {p.githubUrl !== '#' && (
+                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: selectedEcosystem.color }}>GitHub ↗</a>
+                    )}
+                    {p.liveUrl !== '#' && (
+                      <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="solar__panel-link-live">Live Demo ↗</a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
 
         <div className="solar__legend">

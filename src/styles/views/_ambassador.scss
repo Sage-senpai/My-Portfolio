@@ -44,22 +44,22 @@
     flex: 1;
     position: relative;
     overflow: hidden;
-    min-height: 600px;
     background: #08090A url('/bg-stars.png') center / cover no-repeat;
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    /* Scale all em-based orbits/planets relative to viewport height */
+    font-size: clamp(6px, 0.9vw, 12px);
 
-    /* Glow behind sun */
+    /* Glow behind sun — CSS gradient instead of image */
     &::after {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 40em;
-      height: 40em;
-      margin: -20em 0 0 -20em;
-      background: url('/bg-glow.png') center / contain no-repeat;
+      width: 30em;
+      height: 30em;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(255,160,60,0.12) 0%, transparent 70%);
       pointer-events: none;
-      opacity: 0.5;
     }
 
     &--zoomed {
@@ -68,17 +68,16 @@
   }
 
   &__galaxy {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
     /* THE KEY: perspective on the parent gives 3D depth */
     perspective: 1800px;
+    perspective-origin: 50% 50%;
   }
 
   &__system {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     transform-style: preserve-3d;
     /* 3D tilt — this is what creates the angled view */
     transform: rotateX(75deg);
@@ -98,30 +97,28 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 6em;
-    height: 6em;
-    margin: -3em 0 0 -3em;
+    width: 5em;
+    height: 5em;
+    margin: -2.5em 0 0 -2.5em;
     border-radius: 50%;
-    background-color: #FB7209;
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 60px rgba(255,160,60,.4), 0 0 120px rgba(255,120,20,.2);
-    transform-style: preserve-3d;
+    background: radial-gradient(circle at 40% 40%, rgba(255,180,60,0.3), rgba(255,120,20,0.1) 60%, transparent);
+    box-shadow: 0 0 40px rgba(255,160,60,.3), 0 0 80px rgba(255,120,20,.15);
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Counter-rotate so photo faces the viewer */
+    transform-style: preserve-3d;
+    transform: rotateX(-75deg);
   }
 
   &__sun-photo {
-    width: 3.8em;
-    height: 3.8em;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255,160,60,0.6);
-    transform: rotateX(-75deg);
-    position: relative;
-    z-index: 1;
+    border: 2px solid rgba(255,160,60,0.5);
+    box-shadow: 0 0 20px rgba(255,160,60,0.3);
   }
 
   /* ── Orbits (rotating rings) ──────────────── */
@@ -151,12 +148,12 @@
   }
 
   /* ── Planet (textured sphere with logo) ───── */
+  /* NO manual rotateX here — the .pos invert animation already
+     counter-rotates so the planet faces the camera */
   &__planet {
     position: absolute;
     border-radius: 50%;
     cursor: pointer;
-    transform-style: preserve-3d;
-    transform: rotateX(-75deg);
     background-color: #202020;
     background-size: cover;
     background-repeat: no-repeat;
@@ -166,16 +163,13 @@
     align-items: center;
     justify-content: center;
 
-    /* Subtle self-rotation for texture movement */
-    animation: planetSpin 20s linear infinite;
-
     &:hover {
-      transform: rotateX(-75deg) scale(1.3);
+      transform: scale(1.3);
       z-index: 30;
     }
 
     &--selected {
-      transform: rotateX(-75deg) scale(1.6) !important;
+      transform: scale(1.6) !important;
       z-index: 30;
     }
   }
@@ -186,15 +180,13 @@
     object-fit: contain;
     filter: brightness(2) drop-shadow(0 0 4px rgba(255,255,255,0.5));
     pointer-events: none;
-    transform: rotateZ(0deg); /* cancel planet spin for logo */
-    animation: planetSpinReverse 20s linear infinite;
   }
 
   &__planet-info {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: rotateX(-75deg) translateX(-50%) translateY(calc(-100% - 0.5em));
+    transform: translateX(-50%) translateY(calc(-100% - 0.5em));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -213,133 +205,161 @@
     color: #666;
   }
 
-  /* ── Moon orbits + moons ──────────────────── */
-  &__moon-orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 1px dashed rgba(255,255,255,.05);
-    border-radius: 50%;
-    transform-style: preserve-3d;
-    animation: solarOrbit linear infinite;
-    pointer-events: none;
-  }
-
-  &__moon-pos {
+  /* ── Detail Panel (slides in from right) ──── */
+  &__panel {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    transform-style: preserve-3d;
-    animation: solarInvert linear infinite;
-    pointer-events: auto;
+    right: 0;
+    width: 380px;
+    max-width: 90vw;
+    height: 100%;
+    background: rgba(8,9,10,0.95);
+    backdrop-filter: blur(16px);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    animation: panelSlideIn 0.35s ease-out both;
+    overflow: hidden;
   }
 
-  &__moon {
-    position: absolute;
-    transform: rotateX(-75deg) translateX(-50%) translateY(-50%);
+  &__panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    flex-shrink: 0;
+  }
+
+  &__panel-title-row {
     display: flex;
     align-items: center;
-    gap: .35em;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: .25em .6em;
-    border-radius: 4px;
-    transition: background 0.2s;
-
-    &:hover, &--hovered { background: rgba(255,255,255,.08); }
+    gap: 0.75rem;
   }
 
-  &__moon-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+  &__panel-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
     flex-shrink: 0;
-    box-shadow: 0 0 6px currentColor;
   }
 
-  &__moon-label {
-    font-size: .6rem;
-    color: #ccc;
-    font-weight: 500;
+  &__panel-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 0;
   }
 
-  /* ── Tooltip ──────────────────────────────── */
-  &__tooltip {
-    position: absolute;
-    left: 0;
-    top: 2.2em;
-    width: 260px;
-    background: rgba(8,9,10,0.96);
-    border: 1px solid;
-    border-radius: 10px;
-    padding: .85rem;
-    z-index: 200;
-    pointer-events: auto;
-    transform: rotateX(-75deg);
-    animation: fadeUp 0.15s ease-out both;
-    backdrop-filter: blur(12px);
+  &__panel-desc {
+    font-size: 0.68rem;
+    color: #888;
+    line-height: 1.4;
+    margin: 0.15rem 0 0;
   }
 
-  &__tooltip-head { margin-bottom: .4rem; }
-  &__tooltip-title { font-weight: 700; font-size: .82rem; display: block; }
-  &__tooltip-meta { font-size: .58rem; font-weight: 600; }
+  &__panel-close {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #888;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+    &:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+  }
 
-  &__tooltip-desc {
-    font-size: .65rem;
+  &__panel-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    &::-webkit-scrollbar { width: 3px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+  }
+
+  &__panel-project {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 0.85rem;
+    transition: border-color 0.2s;
+    &:hover { border-color: rgba(255,255,255,0.12); }
+  }
+
+  &__panel-project-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.15rem;
+  }
+
+  &__panel-project-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  &__panel-project-status {
+    font-size: 0.6rem;
+    font-weight: 600;
+    &--live { color: #00D395; }
+    &--wip { color: #F59E0B; }
+  }
+
+  &__panel-project-type {
+    font-size: 0.55rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  &__panel-project-desc {
+    font-size: 0.7rem;
     color: #999;
-    line-height: 1.5;
-    margin-bottom: .5rem;
+    line-height: 1.55;
+    margin-bottom: 0.45rem;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  &__tooltip-tech {
+  &__panel-project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: .2rem;
-    margin-bottom: .5rem;
+    gap: 0.2rem;
+    margin-bottom: 0.45rem;
     span {
-      font-size: .48rem;
-      padding: .1rem .35rem;
+      font-size: 0.5rem;
+      padding: 0.1rem 0.35rem;
       border: 1px solid;
       border-radius: 3px;
     }
   }
 
-  &__tooltip-links {
+  &__panel-project-links {
     display: flex;
-    gap: .5rem;
+    gap: 0.6rem;
     a {
-      font-size: .58rem;
+      font-size: 0.62rem;
       font-weight: 600;
       text-decoration: none;
+      transition: opacity 0.2s;
       &:hover { opacity: 0.7; }
     }
   }
-  &__tooltip-live { color: #00D395 !important; }
 
-  /* ── Zoom-out button ──────────────────────── */
-  &__zoom-out {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.1);
-    color: #888;
-    padding: .5rem 1.2rem;
-    border-radius: 20px;
-    font-size: .72rem;
-    cursor: pointer;
-    font-family: inherit;
-    z-index: 20;
-    transition: all 0.2s;
-    &:hover { border-color: rgba(255,255,255,.3); color: #fff; }
-  }
+  &__panel-link-live { color: #00D395 !important; }
 
   /* ── Legend ────────────────────────────────── */
   &__legend {
@@ -464,33 +484,41 @@
   100% { transform: rotateZ(-360deg); }
 }
 
-/* Counter-rotate: undo the tilt + orbit so planet faces camera */
+/* Counter-rotate: undo the orbit's rotateZ so planet faces camera.
+   rotateX(-90deg) flips the planet up from the tilted orbital plane.
+   rotateY(360→0) undoes the orbit's rotateZ(-360→0). */
 @keyframes solarInvert {
   0%   { transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
-  100% { transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(-90deg) rotateY(0deg)   rotateZ(0deg); }
 }
 
-/* Subtle self-rotation of planet texture */
-@keyframes planetSpin {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* Reverse spin so logo stays still */
-@keyframes planetSpinReverse {
-  0%   { transform: rotateZ(0deg); }
-  100% { transform: rotateZ(-360deg); }
+/* Panel slide in from right */
+@keyframes panelSlideIn {
+  0%   { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 /* ══════════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════════ */
 
+/* Large screens */
+@media (min-width: 1600px) {
+  .solar__universe { font-size: 16px; }
+}
+
+/* Standard desktop */
 @media (min-width: 769px) {
   .solar__mobile-grid { display: none !important; }
   .solar__desktop { display: flex; }
 }
 
+/* Tablet — show 3D system but smaller */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .solar__universe { font-size: 9px; min-height: 450px; }
+}
+
+/* Mobile — hide 3D, show card grid */
 @media (max-width: 768px) {
   .solar__desktop { display: none !important; }
   .solar__mobile-grid { display: flex !important; }
