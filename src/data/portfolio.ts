@@ -37,6 +37,8 @@ export interface Ecosystem {
   description: string;
   orbitRadius: number;
   angle: number;
+  planetTexture: string;
+  logo: string;
 }
 
 export interface EventEntry {
@@ -159,6 +161,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'Primary ecosystem — 9 shipped projects, ambassador, workshop lead, Sub0 speaker',
     orbitRadius: 120,
     angle: 270,
+    planetTexture: '/p-earth.png',
+    logo: '/eco-polkadot.svg',
   },
   {
     id: '0g',
@@ -168,6 +172,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'AI-native Layer 1 — decentralized storage, vector search, and AI-powered dApps',
     orbitRadius: 160,
     angle: 45,
+    planetTexture: '/p-neptune.png',
+    logo: '/eco-0g.svg',
   },
   {
     id: 'solana',
@@ -177,6 +183,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'High-performance chain — token-gated social platforms',
     orbitRadius: 200,
     angle: 135,
+    planetTexture: '/p-venus.png',
+    logo: '/eco-solana.svg',
   },
   {
     id: 'stellar',
@@ -186,6 +194,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'Soroban smart contract tooling and decentralized Web3 education',
     orbitRadius: 240,
     angle: 315,
+    planetTexture: '/p-mercury.png',
+    logo: '/eco-stellar.svg',
   },
   {
     id: 'mandala',
@@ -195,6 +205,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'Polkadot parachain — gamified onboarding for new Web3 users',
     orbitRadius: 280,
     angle: 200,
+    planetTexture: '/p-mars.png',
+    logo: '/eco-mandala.svg',
   },
   {
     id: 'mantle',
@@ -204,6 +216,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'Real-world yield intelligence layer on Mantle L2',
     orbitRadius: 320,
     angle: 90,
+    planetTexture: '/p-jupiter.png',
+    logo: '/eco-mantle.svg',
   },
   {
     id: 'pacifica',
@@ -213,6 +227,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'AI-driven liquidation cascade prediction and whale tracking',
     orbitRadius: 350,
     angle: 350,
+    planetTexture: '/p-uranus.png',
+    logo: '/eco-pacifica.svg',
   },
   {
     id: 'web2',
@@ -222,6 +238,8 @@ export const ECOSYSTEMS: Ecosystem[] = [
     description: 'Client websites, health tech, music platforms, and investment dashboards',
     orbitRadius: 370,
     angle: 240,
+    planetTexture: '/p-saturn.png',
+    logo: '/eco-web2.svg',
   },
 ];
 
