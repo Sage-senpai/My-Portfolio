@@ -562,6 +562,21 @@ export const PROJECTS: Project[] = [
     liveUrl: 'https://flour-and-fantasies.vercel.app',
   },
   {
+    id: 'client-demo',
+    name: 'Client Website Showcase',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'Showcase',
+    status: 'LIVE',
+    impact: '11-industry multi-page demo system',
+    txnHash: '0xCL13NT...d3m0',
+    tech: ['React 19', 'TypeScript', 'Vite', 'SCSS', 'Framer Motion'],
+    description:
+      '11 fully independent client websites in one React app — restaurant, airport, resort, delivery, school, SaaS, tech company, construction, beauty salon, coworking space, and fitness gym. Each with its own design system, routing, forms, booking flows, and animations.',
+    githubUrl: 'https://github.com/Sage-senpai/client-demo',
+    liveUrl: 'https://client-projectdemo.vercel.app',
+  },
+  {
     id: 'lunera',
     name: 'Lunera',
     chain: 'None',

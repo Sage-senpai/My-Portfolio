@@ -117,8 +117,16 @@ const WEB_APPS: Project[] = [
     description: 'Flour & Fantasies was born from a passion for creating beautiful, delicious pastries that bring joy to every celebration. Each creation is handcrafted with premium ingredients and baked fresh daily.',
     tech: ['next', 'CSS3', 'TypeScript', 'Credo', 'Vercel'],
     githubUrl: 'https://github.com/Sage-senpai/flour-and-fantasies',
-    liveUrl: 'https://flour-and-fantasies.vercel.app', // TODO: Add live URL → e.g. 'https://dvyne.github.io'
+    liveUrl: 'https://flour-and-fantasies.vercel.app',
     type: 'Website',
+  },
+  {
+    title: 'Client Website Showcase',
+    description: '11-industry client website demo system — restaurant, airport, resort, delivery, school, SaaS, tech, construction, beauty salon, coworking space, and fitness gym. Each industry is a fully independent multi-page website with its own design system, routing, forms, and booking flows.',
+    tech: ['React 19', 'TypeScript', 'Vite', 'SCSS', 'Framer Motion', 'React Router'],
+    githubUrl: 'https://github.com/Sage-senpai/client-demo',
+    liveUrl: 'https://client-projectdemo.vercel.app',
+    type: 'Showcase',
   },
 ];
 
