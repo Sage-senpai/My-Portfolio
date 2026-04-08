@@ -790,10 +790,10 @@ export const PROFILE = {
   linkedin: 'anyadikedivine',
   portfolio: 'https://portfolio-dvyne.vercel.app',
   profileImage: '/profile.jpg',
-  bio: 'Full stack Web3 engineer shipping production-grade decentralized applications end-to-end — frontend, backend, and smart contracts. 27+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Lead developer on client builds including e-commerce (Shopify) and full-stack platforms. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
+  bio: 'Full stack Web3 engineer shipping production-grade applications end-to-end — frontend, backend, and smart contracts. 27+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Lead developer on client builds including an 11-industry client demo system. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
   aboutParagraphs: [
     'I build full stack — frontend, backend, smart contracts, and everything in between. My work spans creating complete decentralized applications end-to-end, writing on-chain protocols, deploying production infrastructure, and fostering builder communities across multiple blockchain ecosystems.',
-    'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar — I ship real products that solve real problems. Every project you see is live, deployed, and functional.',
+    'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar — I ship real products that solve real problems. I also build for clients: an 11-industry demo system showcasing full-stack versatility across restaurant, airport, resort, SaaS, and more. Every project you see is live, deployed, and functional.',
     'Beyond code, I lead developer workshops, organize ecosystem meetups across Nigeria, produce technical content that reaches thousands, and actively contribute to open source. I believe the best builders are the ones who also teach.',
   ],
 };
@@ -801,6 +801,14 @@ export const PROFILE = {
 // ── EXPERIENCES ─────────────────────────────────────────────────────────────
 
 export const EXPERIENCES: Experience[] = [
+  {
+    role: 'Lead Full Stack Developer',
+    org: 'Freelance / Client Work',
+    duration: '2024 – Present',
+    type: null,
+    impact:
+      'Lead developer on an 11-industry client demo system showcasing full-stack versatility across restaurant, airport, resort, delivery, school, SaaS, tech company, construction, beauty salon, coworking, and fitness — each with its own design system, routing, forms, and animations.',
+  },
   {
     role: 'Full Stack Web3 Developer & Ecosystem Builder',
     org: 'Polkadot Ecosystem',

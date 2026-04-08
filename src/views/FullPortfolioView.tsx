@@ -195,7 +195,11 @@ function NavBar({ onBack, activeNav }: { onBack: () => void; activeNav: string }
 
 const liveCount = PROJECTS.filter((p) => p.status === 'LIVE').length;
 const ecoCount = [...new Set(PROJECTS.map((p) => p.ecosystem))].filter((e) => e !== 'web2').length;
-const featuredProjects = PROJECTS.filter((p) => p.liveUrl !== '#').slice(0, 8);
+// Lead with client-demo, theupherroom, bunmicollection — then fill with other live projects
+const CLIENT_IDS = ['client-demo'];
+const clientProjects = PROJECTS.filter((p) => CLIENT_IDS.includes(p.id));
+const otherLive = PROJECTS.filter((p) => p.liveUrl !== '#' && !CLIENT_IDS.includes(p.id) && p.id !== 'dotique');
+const featuredProjects = [...clientProjects, ...otherLive].slice(0, 9);
 
 export default function FullPortfolioView({ onBack }: Props) {
   const [activeNav, setActiveNav] = useState('');
