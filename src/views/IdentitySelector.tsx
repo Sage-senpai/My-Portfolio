@@ -14,7 +14,7 @@ interface Props {
 
 function VCPreview() {
   return (
-    <div style={{ fontFamily: "'Courier New', monospace", fontSize: '0.6rem', lineHeight: 1.8, width: '100%' }}>
+    <div style={{ fontFamily: "var(--font-mono)", fontSize: '0.6rem', lineHeight: 1.8, width: '100%' }}>
       <div><span style={{ color: '#9B5DE5' }}>0xD0T1Q3</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#999' }}>DOTique</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#00D395' }}>✓ VERIFIED</span></div>
       <div><span style={{ color: '#666' }}>0xD0TV35</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#999' }}>DotVest</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#00D395' }}>✓ VERIFIED</span></div>
       <div><span style={{ color: '#666' }}>0x54F3P1</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#999' }}>SafePing</span> <span style={{ color: '#666' }}>·</span> <span style={{ color: '#00D395' }}>✓ VERIFIED</span></div>
@@ -24,7 +24,7 @@ function VCPreview() {
 
 function CTOPreview() {
   return (
-    <div style={{ fontFamily: "'Courier New', monospace", fontSize: '0.6rem', lineHeight: 1.8, color: '#00FF41', width: '100%' }}>
+    <div style={{ fontFamily: "var(--font-mono)", fontSize: '0.6rem', lineHeight: 1.8, color: '#00FF41', width: '100%' }}>
       <div>DIVINE-OS v2.1.0</div>
       <div style={{ color: '#fff' }}>❯ whoami</div>
       <div>Full Stack Web3 Engineer</div>
@@ -35,7 +35,7 @@ function CTOPreview() {
 function ClientPreview() {
   return (
     <div style={{ display: 'flex', gap: '0.5rem', width: '100%', justifyContent: 'center' }}>
-      {[['27', 'Projects'], ['13', 'Events'], ['7', 'Chains']].map(([val, label]) => (
+      {[['27', 'Projects'], ['15', 'Events'], ['7', 'Chains']].map(([val, label]) => (
         <div key={label} style={{
           textAlign: 'center', padding: '0.4rem 0.6rem',
           background: 'rgba(0,212,255,0.05)', borderRadius: '6px',
@@ -160,7 +160,16 @@ export default function IdentitySelector({ onSelect }: Props) {
               style={{
                 animationDelay: `${0.08 * i}s`,
               }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Enter the ${p.label} view — ${p.subtitle}`}
               onClick={() => onSelect(p.id)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelect(p.id);
+                }
+              }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.borderColor = p.accent;

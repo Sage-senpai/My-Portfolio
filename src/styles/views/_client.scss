@@ -8,10 +8,10 @@
 .client {
   --accent: #00D4FF;
 
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #040810;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
 
   &__topbar {
     display: flex;
@@ -51,7 +51,7 @@
   }
 
   &__clock {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     color: #666;
   }
@@ -86,6 +86,9 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     padding: 1rem 1.5rem;
+    // Panels size to their own content instead of stretching to match the
+    // tall Active Deployments panel — no more blank space inside short panels.
+    align-items: start;
   }
 
   &__panel {
@@ -124,7 +127,7 @@
   }
 
   &__mission-code {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.65rem;
     color: var(--accent);
     opacity: 0.7;
@@ -204,6 +207,29 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    // Cap the log so a long event history scrolls inside the panel
+    // rather than stretching the whole dashboard.
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 0.4rem;
+
+    // Subtle cyan scrollbar to match the dashboard (overrides the global red one)
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.35) transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.5);
+    }
   }
 
   &__timeline-entry {
@@ -252,7 +278,7 @@
   }
 
   &__contact-label {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.55rem;
     color: #555;
     letter-spacing: 2px;
@@ -297,7 +323,7 @@
     border: 1px solid rgba(0, 212, 255, 0.1);
     border-radius: 6px;
     color: #ccc;
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.78rem;
     padding: 0.6rem;
     resize: vertical;
@@ -324,6 +350,10 @@
     &:hover {
       background: var(--accent);
       color: #000;
+    }
+
+    &:active {
+      transform: translateY(1px) scale(0.98);
     }
   }
 

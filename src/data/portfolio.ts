@@ -180,7 +180,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     name: 'Solana',
     color: '#9945FF',
     icon: '◈',
-    description: 'High-performance chain — token-gated social platforms',
+    description: 'High-performance chain — bounty-driven sales with on-chain USDC escrow',
     orbitRadius: 200,
     angle: 135,
     planetTexture: '/p-venus.png',
@@ -293,36 +293,6 @@ export const PROJECTS: Project[] = [
     liveUrl: '#',
   },
   {
-    id: 'equishare',
-    name: 'EquiShare',
-    chain: 'Polkadot',
-    ecosystem: 'polkadot',
-    type: 'RealFi',
-    status: 'LIVE',
-    impact: 'Fractional real estate ownership',
-    txnHash: '0x3QU15H...7c9b',
-    tech: ['Next.js', 'TypeScript', 'Polkadot', 'Substrate'],
-    description:
-      'Polkadot-native fractional real-estate dApp emphasizing fairness and sybil resistance. Enables fractional property ownership with on-chain equity distribution and transparent governance.',
-    githubUrl: 'https://github.com/Sage-senpai/EquiShare',
-    liveUrl: 'https://equishare-pink.vercel.app',
-  },
-  {
-    id: 'prizm',
-    name: 'Prizm Protocol',
-    chain: 'Polkadot',
-    ecosystem: 'polkadot',
-    type: 'DeFi',
-    status: 'LIVE',
-    impact: 'Real asset borrowing protocol',
-    txnHash: '0xPR1ZM0...3d5e',
-    tech: ['Next.js', 'TypeScript', 'Polkadot'],
-    description:
-      'Real asset borrowing platform secured by verified individuals. Enables decentralized lending against real-world assets with on-chain identity verification and transparent collateral management.',
-    githubUrl: 'https://github.com/Sage-senpai/Prizm-protocol',
-    liveUrl: 'https://prizm-protocol.vercel.app',
-  },
-  {
     id: 'crimson-remit',
     name: 'Crimson Remit',
     chain: 'Polkadot',
@@ -415,6 +385,21 @@ export const PROJECTS: Project[] = [
     liveUrl: '#',
   },
   {
+    id: 'elf',
+    name: 'Elf',
+    chain: '0G',
+    ecosystem: '0g',
+    type: 'AI+Web3',
+    status: 'LIVE',
+    impact: 'Cross-functional builder workspace',
+    txnHash: '0x3LF000...1c7d',
+    tech: ['Next.js', 'TypeScript', '0G SDK', '0G Compute', 'Solidity', 'wagmi'],
+    description:
+      'A cross-functional builder workspace layered over GitHub, GitLab, and Bitbucket — devs commit code, writers add docs and decks, and managers gate who can see or fork anything, all without leaving the platform. Backed by a decentralized stack: 0G Storage for tamper-proof records, an autonomous Shelf Agent on 0G Compute, and an on-chain state-manager contract on the 0G Galileo testnet.',
+    githubUrl: 'https://github.com/Sage-senpai/Elf',
+    liveUrl: '#',
+  },
+  {
     id: '0g-vector',
     name: '0G Vector Search',
     chain: '0G',
@@ -432,19 +417,19 @@ export const PROJECTS: Project[] = [
 
   // ─── Solana Ecosystem ───
   {
-    id: 'innercircle',
-    name: 'InnerCircle',
+    id: 'sold-earn',
+    name: "SOL'D",
     chain: 'Solana',
     ecosystem: 'solana',
-    type: 'Social',
+    type: 'DApp',
     status: 'LIVE',
-    impact: 'Token-gated social platform',
-    txnHash: '0x1NN3RC...5b7d',
-    tech: ['React', 'TypeScript', 'Solana', 'web3.js', 'pump.fun'],
+    impact: 'Bounty-driven sales engine',
+    txnHash: '0x50LD00...3a9c',
+    tech: ['Next.js', 'TypeScript', 'Anchor', 'Solana', 'Metaplex Core'],
     description:
-      'Token-gated social platform with memecoin ownership requirements. Access is governed by on-chain token holdings via pump.fun and Solana, creating exclusive communities around shared financial stakes.',
-    githubUrl: 'https://github.com/Sage-senpai/INNERCIRCLE',
-    liveUrl: 'https://innercircle-gamma.vercel.app',
+      'Bounty-driven sales generation protocol on Solana. Vendors lock USDC in on-chain escrow, scouts mint a soulbound Sales ID and earn on every sale, and buyers pay via Solana Pay. An agentic backbone keeps the marketplace gameable-resistant — built as the final evolution of Superteam Earn.',
+    githubUrl: 'https://github.com/Sage-senpai/Sold-earn',
+    liveUrl: 'https://sold-earn.vercel.app',
   },
 
   // ─── Mandala Chain ───
@@ -531,6 +516,36 @@ export const PROJECTS: Project[] = [
   },
 
   // ─── Web2 / Freelance ───
+  {
+    id: 'orbyt',
+    name: 'Orbyt',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'Mobile App',
+    status: 'LIVE',
+    impact: 'Campus social event OS',
+    txnHash: '0x0RBYT0...2f4d',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'Reanimated'],
+    description:
+      'A social event operating system for university campuses — your events, friends, and priorities in one orbit. Helps students decide which events to attend while giving hosts and crews powerful tools to promote and manage their events, built with Expo and React Native.',
+    githubUrl: 'https://github.com/Sage-senpai/Orbyt',
+    liveUrl: 'https://www.orbyt.events',
+  },
+  {
+    id: 'alchemy',
+    name: 'Alchemy',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'AI Platform',
+    status: 'LIVE',
+    impact: 'Bias-blind partnership matching',
+    txnHash: '0x4LCH3M...7b1e',
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'Claude AI', 'Google Calendar API'],
+    description:
+      'A bias-blind strategic partnership platform (a tool of The UpHer Room). Users create anonymous, mission-first profiles and request to connect; on a mutual match the platform auto-books a meeting on both calendars, with identity revealed only at the meeting itself.',
+    githubUrl: 'https://github.com/theupherroom/Alchemy',
+    liveUrl: 'https://alchemy.theupherroom.com',
+  },
   {
     id: 'mxch',
     name: 'MXCH',
@@ -705,10 +720,12 @@ export const OSS_CONTRIBUTIONS: OSSContribution[] = [
 // ── EVENTS ──────────────────────────────────────────────────────────────────
 
 export const EVENTS: EventEntry[] = [
+  { year: 2026, name: 'Avalanche Team1 — BlockHive, UNN', role: 'Speaker', attendees: 50, image: '/avalanche-team1-speaker.png' },
+  { year: 2026, name: 'Boundless Hackathon — BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/boundless-hackathon.png' },
+  { year: 2026, name: 'DevPack Hackathon — BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/devpack-hackathon.png' },
   { year: 2026, name: '0G Network Hackathon', role: 'ETF Hackathon Competitor', attendees: 1000, image: '/0G-hackathon.jpg' },
   { year: 2026, name: '0G Ecosystem Onboarding', role: 'Developer Onboarding Lead', attendees: 300, image: '/0G-onboarding.jpg' },
   { year: 2025, name: 'Polkadot Developer Workshop', role: 'Workshop Lead — Substrate & XCM', attendees: 200, image: '/polkadot-dev.jpg' },
-  { year: 2025, name: 'Sui-Move Developer Workshop', role: 'Organizer — Move Programming', attendees: 150, image: '/sui-meetup.jpg' },
   { year: 2025, name: 'Polkadot Road to sub0 Meetup', role: 'Builder Representative', attendees: 300, image: '/road-2-sub0.jpg' },
   { year: 2025, name: 'Sui Ecosystem Builder Network', role: 'Community Builder — SE Nigeria', attendees: 120, image: '/sui-meetup-group.jpg' },
   { year: 2025, name: 'Move Language Workshop Series', role: 'Co-Lead Instructor', attendees: 100, image: '/sui-meetup-group-1.jpg' },
@@ -815,7 +832,7 @@ export const EXPERIENCES: Experience[] = [
     duration: '2022 – Present',
     type: null,
     impact:
-      'Shipped 9+ dApps on Polkadot including DOTique (NFT marketplace), DotVest (DeFi staking), SafePing (family safety), and EquiShare (fractional real estate). Led developer onboarding workshops for Substrate, PAPI, and XCM architecture. Built community infrastructure serving builders across West Africa.',
+      'Shipped 9+ dApps on Polkadot including DOTique (NFT marketplace), DotVest (DeFi staking), SafePing (family safety), and Crimson Remit (cross-border remittance). Led developer onboarding workshops for Substrate, PAPI, and XCM architecture. Built community infrastructure serving builders across West Africa.',
   },
   {
     role: 'AI + Web3 Developer',

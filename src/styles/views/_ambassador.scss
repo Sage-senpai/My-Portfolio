@@ -8,10 +8,10 @@
 
 .solar {
   --accent: #E6007A;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #08090A;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
   overflow: hidden;

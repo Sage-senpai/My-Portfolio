@@ -8,10 +8,10 @@
 .event {
   --accent: #F59E0B;
 
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #06060f;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,6 +300,10 @@
     align-items: center;
     gap: 0.4rem;
     font-family: inherit;
+
+    &:active {
+      transform: scale(0.97);
+    }
 
     &--email {
       border-color: var(--accent);

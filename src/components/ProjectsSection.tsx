@@ -73,12 +73,12 @@ const WEB_APPS: Project[] = [
     type: 'Web App',
   },
   {
-    title: 'InnerCircle',
-    description: 'InnerCircle is a token-gated social platform where access to communities, private posts, and influence is determined by on-chain memecoin ownership, combined with real-time leaderboards and market intelligence.',
-    tech: ['React', 'CSS3', 'TypeScript','bagsAPI', 'pump.fun', 'solana/web3.js'],
-  githubUrl: 'https://github.com/Sage-senpai/INNERCIRCLE',
-    liveUrl: 'https://innercircle-gamma.vercel.app', // TODO: Add live URL → e.g. 'https://nexachain.vercel.app'
-    type: 'Website',
+    title: "SOL'D",
+    description: "Bounty-driven sales generation protocol on Solana. Vendors lock USDC in on-chain escrow, scouts mint a soulbound Sales ID and earn on every sale, buyers pay via Solana Pay, and an agentic backbone keeps the marketplace gameable-resistant — built as the final evolution of Superteam Earn.",
+    tech: ['Next.js', 'TypeScript', 'Anchor', 'solana/web3.js', 'Metaplex Core'],
+    githubUrl: 'https://github.com/Sage-senpai/Sold-earn',
+    liveUrl: 'https://sold-earn.vercel.app',
+    type: 'DApp',
   },
   {
     title: 'LoreLich',
@@ -97,20 +97,20 @@ const WEB_APPS: Project[] = [
     type: 'Website',
   },
    {
-    title: 'EquiShare',
-    description: 'EquiShare is a Polkadot-native fractional real-estate dApp focused on fairness and sybil resistance',
-    tech: ['next', 'CSS3', 'TypeScript', 'Polkadot', 'Vercel', 'Substrate', 'Proof of ownership mechanisms'],
-    githubUrl: 'https://github.com/Sage-senpai/EquiShare',
-    liveUrl: 'https://equishare-pink.vercel.app', // TODO: Add live URL → e.g. 'https://dvyne.github.io'
-    type: 'Website',
+    title: 'Orbyt',
+    description: 'A social event operating system for university campuses — your events, friends, and priorities in one orbit. Helps students decide which events to attend while giving hosts and crews powerful tools to promote and manage their events.',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'Reanimated'],
+    githubUrl: 'https://github.com/Sage-senpai/Orbyt',
+    liveUrl: 'https://www.orbyt.events',
+    type: 'Mobile App',
   },
     {
-    title: 'Prizm-Protocol',
-    description: 'Prizm-Protocol is a decentralized platform for managing and sharing digital assets with enhanced privacy and security features. Borrow Against Real Assets — Secured by Real Humans.',
-    tech: ['next', 'CSS3', 'TypeScript', 'Polkadot', 'Vercel', 'Substrate', 'Proof of ownership mechanisms'],
-    githubUrl: 'https://github.com/Sage-senpai/Prizm-protocol',
-    liveUrl: 'https://prizm-protocol.vercel.app', // TODO: Add live URL → e.g. 'https://dvyne.github.io'
-    type: 'Website',
+    title: 'Alchemy',
+    description: 'A bias-blind strategic partnership platform (a tool of The UpHer Room). Anonymous mission-first profiles connect, and on a mutual match the platform auto-books a meeting on both calendars — identity is revealed only at the meeting itself.',
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'Claude AI', 'Google Calendar API'],
+    githubUrl: 'https://github.com/theupherroom/Alchemy',
+    liveUrl: 'https://alchemy.theupherroom.com',
+    type: 'AI Platform',
   },
    {
     title: 'Flour & Fantasies',

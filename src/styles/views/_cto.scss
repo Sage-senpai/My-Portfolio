@@ -8,10 +8,10 @@
 .cto {
   --accent: #00FF41;
 
-  min-height: 100vh;
-  background: #000;
+  min-height: 100dvh;
+  background: #0a0a0a;
   color: #fff;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   display: flex;
   flex-direction: column;
 
@@ -86,7 +86,7 @@
     border: none;
     outline: none;
     color: #fff;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 14px;
     caret-color: transparent;
     margin-left: 4px;

@@ -18,8 +18,8 @@ $border: rgba(255,255,255,0.07);
 .fp {
   background: $bg;
   color: $text;
-  min-height: 100vh;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
   overflow-x: hidden;
 
   // ── Accent ──────────────────────────
@@ -963,6 +963,99 @@ $border: rgba(255,255,255,0.07);
     color: #444;
     letter-spacing: 0.04em;
   }
+
+  // ── Community gallery ───────────────
+  &__community-intro {
+    max-width: 640px;
+    color: $text-dim;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  &__community-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  &__community-img-wrap {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid $border;
+    aspect-ratio: 4 / 3;
+    background: $bg2;
+
+    &:hover {
+      border-color: rgba(155, 93, 229, 0.4);
+
+      .fp__community-img { transform: scale(1.06); }
+      .fp__community-overlay { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  &__community-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  &__community-year {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 8px;
+    border-radius: 3px;
+    background: rgba(8, 8, 8, 0.7);
+    border: 1px solid rgba(155, 93, 229, 0.3);
+    color: $accent-pale;
+    backdrop-filter: blur(4px);
+  }
+
+  &__community-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 16px;
+    background: linear-gradient(
+      to top,
+      rgba(8, 8, 8, 0.92) 0%,
+      rgba(8, 8, 8, 0.5) 45%,
+      transparent 100%
+    );
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  &__community-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: $text;
+    line-height: 1.3;
+  }
+
+  &__community-role {
+    font-size: 11px;
+    color: $accent-pale;
+    letter-spacing: 0.02em;
+  }
+
+  &__community-attendees {
+    font-size: 10px;
+    color: $text-dim;
+    letter-spacing: 0.04em;
+  }
 }
 
 // ── Keyframes ─────────────────────────
@@ -985,6 +1078,9 @@ $border: rgba(255,255,255,0.07);
   .fp__proj-grid { grid-template-columns: 1fr !important; }
   .fp__content-grid { grid-template-columns: 1fr !important; }
   .fp__oss-grid { grid-template-columns: 1fr !important; }
+  .fp__community-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  // No hover on touch — keep the caption visible.
+  .fp__community-overlay { opacity: 1 !important; transform: none !important; }
 }
 
 @media (max-width: 480px) {
@@ -993,4 +1089,5 @@ $border: rgba(255,255,255,0.07);
   .fp__about-pillars { grid-template-columns: 1fr; }
   .fp__footer-inner { flex-direction: column; align-items: flex-start; }
   .fp__footer-links { gap: 16px; }
+  .fp__community-grid { grid-template-columns: 1fr !important; }
 }

@@ -122,7 +122,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ── Nav ─────────────────────────────────────────────────────────────────── */
 
-const SECTIONS = ['about', 'skills', 'experience', 'projects', 'content', 'contact'];
+const SECTIONS = ['about', 'skills', 'experience', 'projects', 'community', 'content', 'contact'];
 
 function NavBar({ onBack, activeNav }: { onBack: () => void; activeNav: string }) {
   const [scrolled, setScrolled] = useState(false);
@@ -200,6 +200,8 @@ const CLIENT_IDS = ['client-demo'];
 const clientProjects = PROJECTS.filter((p) => CLIENT_IDS.includes(p.id));
 const otherLive = PROJECTS.filter((p) => p.liveUrl !== '#' && !CLIENT_IDS.includes(p.id) && p.id !== 'dotique');
 const featuredProjects = [...clientProjects, ...otherLive].slice(0, 9);
+// Community gallery — every event that has a photo
+const COMMUNITY_GALLERY = EVENTS.filter((e) => e.image);
 
 export default function FullPortfolioView({ onBack }: Props) {
   const [activeNav, setActiveNav] = useState('');
@@ -429,8 +431,49 @@ export default function FullPortfolioView({ onBack }: Props) {
         </section>
       </div>
 
-      {/* ═══ CONTENT ═══ */}
+      {/* ═══ COMMUNITY ═══ */}
       <div className="fp__section-divider">
+        <section id="community" className="fp__section">
+          <FadeIn><SectionLabel>Community</SectionLabel></FadeIn>
+          <FadeIn>
+            <h2 className="fp__section-title">Workshops, Talks & Meetups</h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="fp__community-intro">
+              Beyond shipping code — leading developer workshops, organizing ecosystem
+              meetups across Nigeria, and competing at hackathons. A look at the
+              community work behind the builds.
+            </p>
+          </FadeIn>
+          <div className="fp__community-grid">
+            {COMMUNITY_GALLERY.map((e, i) => (
+              <FadeIn key={e.name} delay={(i % 3) * 0.08} className="fp__community-card">
+                <div className="fp__community-img-wrap">
+                  <img
+                    src={e.image}
+                    alt={e.name}
+                    loading="lazy"
+                    className="fp__community-img"
+                  />
+                  <span className="fp__community-year">{e.year}</span>
+                  <div className="fp__community-overlay">
+                    <h3 className="fp__community-name">{e.name}</h3>
+                    <span className="fp__community-role">{e.role}</span>
+                    {e.attendees > 0 && (
+                      <span className="fp__community-attendees">
+                        {e.attendees.toLocaleString()}+ attendees
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* ═══ CONTENT ═══ */}
+      <div className="fp__section-divider fp__section-divider--alt">
         <section id="content" className="fp__section">
           <FadeIn><SectionLabel>Content</SectionLabel></FadeIn>
           <FadeIn>
@@ -454,7 +497,7 @@ export default function FullPortfolioView({ onBack }: Props) {
       </div>
 
       {/* ═══ CONTACT ═══ */}
-      <div className="fp__section-divider fp__section-divider--alt">
+      <div className="fp__section-divider">
         <section id="contact" className="fp__section">
           <FadeIn>
             <div className="fp__contact-center">

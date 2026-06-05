@@ -9,10 +9,10 @@
   --accent: #9B5DE5;
   --glow: rgba(155, 93, 229, 0.35);
 
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #06060f;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   padding: 2rem 1.5rem;
 
   &__header {
@@ -32,7 +32,7 @@
   }
 
   &__title {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
@@ -65,7 +65,7 @@
   }
 
   &__wallet-value {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     color: var(--accent);
 
@@ -107,7 +107,7 @@
   }
 
   &__hash {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.78rem;
     color: var(--accent);
     overflow: hidden;
@@ -216,7 +216,7 @@
   &__meta {
     font-size: 0.68rem;
     color: #555;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
   }
 
   &__footer {
@@ -224,7 +224,7 @@
     text-align: center;
     font-size: 0.7rem;
     color: #444;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     letter-spacing: 0.5px;
   }
 }

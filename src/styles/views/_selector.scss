@@ -8,10 +8,15 @@
 .selector {
   --bg: #06060f;
 
-  min-height: 100vh;
-  background: var(--bg);
+  position: relative;
+  min-height: 100dvh;
+  // Ambient depth — two soft accent glows over the tinted near-black base
+  background:
+    radial-gradient(1100px 620px at 50% -12%, rgba(155, 93, 229, 0.10), transparent 60%),
+    radial-gradient(900px 520px at 88% 112%, rgba(230, 0, 122, 0.08), transparent 55%),
+    var(--bg);
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -33,9 +38,10 @@
 
   &__name {
     font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 900;
+    font-weight: 800;
     color: #fff;
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
+    text-wrap: balance;
     margin: 0.25rem 0;
   }
 
@@ -60,6 +66,7 @@
     text-align: center;
     max-width: 540px;
     line-height: 1.6;
+    text-wrap: balance;
     margin-bottom: 2rem;
     animation: fadeUp 0.6s ease-out 0.15s both;
   }
@@ -79,13 +86,20 @@
     border-radius: 14px;
     padding: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     animation: fadeUp 0.5s ease-out both;
     width: calc(33.333% - 0.75rem);
+    will-change: transform;
 
     &:hover {
       transform: translateY(-10px);
+    }
+
+    // Physical press feedback
+    &:active {
+      transform: translateY(-4px) scale(0.992);
     }
 
     /* First card (General/Recruiter) spans full width */
@@ -108,7 +122,7 @@
 
   &__preview {
     height: 80px;
-    background: #000;
+    background: #0a0a12;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1rem;
