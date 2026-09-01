@@ -14,6 +14,7 @@ import ClientView from './views/ClientView';
 import AmbassadorView from './views/AmbassadorView';
 import EventView from './views/EventView';
 import FullPortfolioView from './views/FullPortfolioView';
+import BentoLandingView from './views/BentoLandingView';
 
 import type { ViewId } from './data/portfolio';
 
@@ -35,7 +36,14 @@ const transition = {
 
 function App() {
   const [view, setView] = useState<ViewId | null>(null);
+  const [bentoDemo, setBentoDemo] = useState(
+    () => new URLSearchParams(window.location.search).has('bento'),
+  );
   const CurrentView = view ? viewMap[view] : null;
+
+  if (bentoDemo) {
+    return <BentoLandingView onExit={() => setBentoDemo(false)} />;
+  }
 
   return (
     <AnimatePresence mode="wait">

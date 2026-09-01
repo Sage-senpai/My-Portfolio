@@ -101,7 +101,7 @@ A CSS 3D card that responds to mouse movement with tilt and shimmer effects. Cli
 - **Portfolio**: [portfolio-dvyne.vercel.app](https://portfolio-dvyne.vercel.app)
 - **GitHub**: [github.com/Sage-senpai](https://github.com/Sage-senpai)
 - **Twitter/X**: [@sage_senpeak](https://x.com/sage_senpeak)
-- **Email**: anyadikedivine@gmail.com
+- **Email**: anyadikedivine0@gmail.com
 
 ---
 

@@ -122,7 +122,7 @@ const WEB_APPS: Project[] = [
   },
   {
     title: 'Client Website Showcase',
-    description: '11-industry client website demo system — restaurant, airport, resort, delivery, school, SaaS, tech, construction, beauty salon, coworking space, and fitness gym. Each industry is a fully independent multi-page website with its own design system, routing, forms, and booking flows.',
+    description: '19-industry client website demo system: restaurant, airport, resort, delivery, school, SaaS, tech, construction, beauty, coworking, fitness, real estate, e-commerce, healthcare, fintech, marketing agency, agritech, insurance, and consulting. Each industry is a fully independent multi-page website with its own design system, routing, forms, and booking flows.',
     tech: ['React 19', 'TypeScript', 'Vite', 'SCSS', 'Framer Motion', 'React Router'],
     githubUrl: 'https://github.com/Sage-senpai/client-demo',
     liveUrl: 'https://client-projectdemo.vercel.app',

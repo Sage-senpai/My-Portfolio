@@ -49,7 +49,7 @@ function ClientPreview() {
   );
 }
 
-function AmbassadorPreview() {
+export function AmbassadorPreview() {
   // Solar system mini preview
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -89,7 +89,7 @@ function AmbassadorPreview() {
   );
 }
 
-function EventPreview() {
+export function EventPreview() {
   return (
     <div style={{
       width: '130px', height: '65px',
