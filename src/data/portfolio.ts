@@ -1,6 +1,6 @@
 // ============================================================================
 // FILE: src/data/portfolio.ts
-// DESCRIPTION: All typed portfolio content — sourced from real GitHub repos
+// DESCRIPTION: All typed portfolio content, sourced from real GitHub repos
 // ============================================================================
 
 export type ViewId = 'vc' | 'cto' | 'client' | 'ambassador' | 'event' | 'portfolio';
@@ -99,7 +99,7 @@ export const PERSONAS: Persona[] = [
     label: 'Recruiter / General',
     subtitle: 'Full Portfolio',
     description:
-      'The complete picture — a polished scrollable portfolio with hero, about, skills, experience, shipped projects, content, and contact. Everything in one page.',
+      'The complete picture: a polished scrollable portfolio with hero, about, skills, experience, shipped projects, content, and contact. Everything in one page.',
     accent: '#C0182A',
     glow: 'rgba(192,24,42,0.3)',
   },
@@ -126,7 +126,7 @@ export const PERSONAS: Persona[] = [
     label: 'Client / Startup',
     subtitle: 'Mission Control Dashboard',
     description:
-      'A NASA-style operations room showing live deployments, skill diagnostics, and mission logs — everything you need to greenlight a collaboration.',
+      'A NASA-style operations room showing live deployments, skill diagnostics, and mission logs. Everything you need to greenlight a collaboration.',
     accent: '#00D4FF',
     glow: 'rgba(0,212,255,0.3)',
   },
@@ -135,7 +135,7 @@ export const PERSONAS: Persona[] = [
     label: 'Ecosystem / Protocol',
     subtitle: 'Solar System Explorer',
     description:
-      'An interactive solar system where each planet is a blockchain ecosystem — tap to zoom in and explore every project orbiting within it.',
+      'An interactive solar system where each planet is a blockchain ecosystem. Tap to zoom in and explore every project orbiting within it.',
     accent: '#E6007A',
     glow: 'rgba(230,0,122,0.3)',
   },
@@ -144,7 +144,7 @@ export const PERSONAS: Persona[] = [
     label: 'Conference / Event',
     subtitle: 'Holographic ID Card',
     description:
-      'A 3D tilt-responsive holographic badge with shimmer effects — flip it to see the full proof-of-work record. Download or print it.',
+      'A 3D tilt-responsive holographic badge with shimmer effects. Flip it to see the full proof-of-work record. Download or print it.',
     accent: '#F59E0B',
     glow: 'rgba(245,158,11,0.3)',
   },
@@ -158,7 +158,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     name: 'Polkadot',
     color: '#E6007A',
     icon: '⬡',
-    description: 'Primary ecosystem — 9 shipped projects, ambassador, workshop lead, Sub0 speaker',
+    description: 'Primary ecosystem: 9 shipped projects, ambassador, workshop lead, Sub0 speaker',
     orbitRadius: 120,
     angle: 270,
     planetTexture: '/p-earth.png',
@@ -169,7 +169,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     name: '0G Network',
     color: '#00D395',
     icon: '◎',
-    description: 'AI-native Layer 1 — decentralized storage, vector search, and AI-powered dApps',
+    description: 'AI-native Layer 1: decentralized storage, vector search, and AI-powered dApps',
     orbitRadius: 160,
     angle: 45,
     planetTexture: '/p-neptune.png',
@@ -180,7 +180,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     name: 'Solana',
     color: '#9945FF',
     icon: '◈',
-    description: 'High-performance chain — bounty-driven sales with on-chain USDC escrow',
+    description: 'High-performance chain: bounty-driven sales with on-chain USDC escrow',
     orbitRadius: 200,
     angle: 135,
     planetTexture: '/p-venus.png',
@@ -202,7 +202,7 @@ export const ECOSYSTEMS: Ecosystem[] = [
     name: 'Mandala Chain',
     color: '#FF6B6B',
     icon: '⬢',
-    description: 'Polkadot parachain — gamified onboarding for new Web3 users',
+    description: 'Polkadot parachain: gamified onboarding for new Web3 users',
     orbitRadius: 280,
     angle: 200,
     planetTexture: '/p-mars.png',
@@ -288,7 +288,7 @@ export const PROJECTS: Project[] = [
     txnHash: '0x54F3P1...9d4e',
     tech: ['Next.js', 'TypeScript', 'PAPI', 'Web3'],
     description:
-      'One-tap family check-in beacon with on-chain signed proof. Families can verify each other\'s safety through tamper-proof, blockchain-verified pings — no passwords, no accounts, just one tap.',
+      'One-tap family check-in beacon with on-chain signed proof. Families can verify each other\'s safety through tamper-proof, blockchain-verified pings. No passwords, no accounts, just one tap.',
     githubUrl: 'https://github.com/Sage-senpai/SafePing',
     liveUrl: '#',
   },
@@ -395,7 +395,7 @@ export const PROJECTS: Project[] = [
     txnHash: '0x3LF000...1c7d',
     tech: ['Next.js', 'TypeScript', '0G SDK', '0G Compute', 'Solidity', 'wagmi'],
     description:
-      'A cross-functional builder workspace layered over GitHub, GitLab, and Bitbucket — devs commit code, writers add docs and decks, and managers gate who can see or fork anything, all without leaving the platform. Backed by a decentralized stack: 0G Storage for tamper-proof records, an autonomous Shelf Agent on 0G Compute, and an on-chain state-manager contract on the 0G Galileo testnet.',
+      'A cross-functional builder workspace layered over GitHub, GitLab, and Bitbucket. Devs commit code, writers add docs and decks, and managers gate who can see or fork anything, all without leaving the platform. Backed by a decentralized stack: 0G Storage for tamper-proof records, an autonomous Shelf Agent on 0G Compute, and an on-chain state-manager contract on the 0G Galileo testnet.',
     githubUrl: 'https://github.com/Sage-senpai/Elf',
     liveUrl: '#',
   },
@@ -427,7 +427,7 @@ export const PROJECTS: Project[] = [
     txnHash: '0x50LD00...3a9c',
     tech: ['Next.js', 'TypeScript', 'Anchor', 'Solana', 'Metaplex Core'],
     description:
-      'Bounty-driven sales generation protocol on Solana. Vendors lock USDC in on-chain escrow, scouts mint a soulbound Sales ID and earn on every sale, and buyers pay via Solana Pay. An agentic backbone keeps the marketplace gameable-resistant — built as the final evolution of Superteam Earn.',
+      'Bounty-driven sales generation protocol on Solana. Vendors lock USDC in on-chain escrow, scouts mint a soulbound Sales ID and earn on every sale, and buyers pay via Solana Pay. An agentic backbone keeps the marketplace gameable-resistant. Built as the final evolution of Superteam Earn.',
     githubUrl: 'https://github.com/Sage-senpai/Sold-earn',
     liveUrl: 'https://sold-earn.vercel.app',
   },
@@ -527,7 +527,7 @@ export const PROJECTS: Project[] = [
     txnHash: '0x0RBYT0...2f4d',
     tech: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'Reanimated'],
     description:
-      'A social event operating system for university campuses — your events, friends, and priorities in one orbit. Helps students decide which events to attend while giving hosts and crews powerful tools to promote and manage their events, built with Expo and React Native.',
+      'A social event operating system for university campuses: your events, friends, and priorities in one orbit. Helps students decide which events to attend while giving hosts and crews powerful tools to promote and manage their events, built with Expo and React Native.',
     githubUrl: 'https://github.com/Sage-senpai/Orbyt',
     liveUrl: 'https://www.orbyt.events',
   },
@@ -583,11 +583,11 @@ export const PROJECTS: Project[] = [
     ecosystem: 'web2',
     type: 'Showcase',
     status: 'LIVE',
-    impact: '11-industry multi-page demo system',
+    impact: '19-industry multi-page demo system',
     txnHash: '0xCL13NT...d3m0',
     tech: ['React 19', 'TypeScript', 'Vite', 'SCSS', 'Framer Motion'],
     description:
-      '11 fully independent client websites in one React app — restaurant, airport, resort, delivery, school, SaaS, tech company, construction, beauty salon, coworking space, and fitness gym. Each with its own design system, routing, forms, booking flows, and animations.',
+      '19 fully independent client websites in one React app: restaurant, airport, resort, delivery, school, SaaS, tech, construction, beauty, coworking, fitness, real estate, e-commerce, healthcare, fintech, marketing agency, agritech, insurance, and consulting. Each with its own design system, routing, forms, booking flows, and animations.',
     githubUrl: 'https://github.com/Sage-senpai/client-demo',
     liveUrl: 'https://client-projectdemo.vercel.app',
   },
@@ -628,11 +628,11 @@ export const PROJECTS: Project[] = [
     ecosystem: 'web2',
     type: 'Website',
     status: 'LIVE',
-    impact: 'Full-stack platform — lead developer',
+    impact: 'Full-stack platform, lead developer',
     txnHash: '0xUPH3R0...7a8b',
     tech: ['React', 'Node.js', 'TypeScript', 'Full Stack'],
     description:
-      'Full-stack web platform built as lead developer. End-to-end architecture spanning frontend UI, backend API, database design, and deployment — demonstrating complete ownership of the development lifecycle from concept to production.',
+      'Full-stack web platform built as lead developer. End-to-end architecture spanning frontend UI, backend API, database design, and deployment, demonstrating complete ownership of the development lifecycle from concept to production.',
     githubUrl: '#',
     liveUrl: 'https://theupherroom.com',
   },
@@ -643,13 +643,58 @@ export const PROJECTS: Project[] = [
     ecosystem: 'web2',
     type: 'E-commerce',
     status: 'LIVE',
-    impact: 'Shopify e-commerce — lead developer',
+    impact: 'Shopify e-commerce, lead developer',
     txnHash: '0xBUNM10...9c1d',
     tech: ['Shopify', 'Liquid', 'JavaScript', 'E-commerce'],
     description:
       'Custom Shopify e-commerce store built as lead developer for Bunmi Collection. Full storefront design, product catalog architecture, payment integration, and custom theme development delivering a polished shopping experience.',
     githubUrl: '#',
     liveUrl: 'https://bunmicollection.com',
+  },
+  {
+    id: 'kotlead-academy',
+    name: 'Kotlead Academy Platform',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'EdTech Platform',
+    status: 'LIVE',
+    impact: 'Multi-portal EdTech platform, 5 coordinated services',
+    txnHash: '0xK0TL34D0...9c2f',
+    tech: ['Next.js', 'TypeScript', 'Hono', 'Prisma', 'PostgreSQL'],
+    description:
+      'Multi-portal academy platform built for Kotlead: enrollment, student, mentor, and admin dashboards backed by a shared Hono/Prisma API. Full-stack developer across all five services, covering cohort management, course delivery, mentor scheduling, and platform administration.',
+    githubUrl: '#',
+    liveUrl: '#',
+  },
+  {
+    id: 'innovatech-suite',
+    name: 'Innovatech Suite',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'Desktop App',
+    status: 'WIP',
+    impact: 'Confidential desktop suite, built for Innovatech (a Kotlead company)',
+    txnHash: '0x1NN0V4TE...5b3e',
+    tech: ['Tauri', 'Next.js', 'Rust', 'TypeScript', 'Prisma'],
+    description:
+      'Cross-platform desktop application suite built for Innovatech, a company under the Kotlead umbrella. Product scope and functionality are confidential under NDA. Delivered a Tauri desktop shell, a Hono/Prisma backend service, a Next.js admin frontend, and a native Windows service handling privileged system-level operations.',
+    githubUrl: '#',
+    liveUrl: '#',
+  },
+  {
+    id: 'learning-space',
+    name: 'Learning Space',
+    chain: 'None',
+    ecosystem: 'web2',
+    type: 'EdTech Platform',
+    status: 'LIVE',
+    impact: 'Gamified LMS for Nigerian schools',
+    txnHash: '0xL34RNSPC...7f2c',
+    tech: ['Next.js', 'Supabase', 'TipTap', 'Paystack'],
+    description:
+      'Gamified e-learning platform for Nigerian schools spanning student, educator, school, parent, vendor, and admin dashboards: video lessons with embedded questions, live classes and presentations, CBT exams, an XP/rewards economy, and a Paystack-powered redemption-partner marketplace.',
+    githubUrl: '#',
+    liveUrl: '#',
   },
   {
     id: 'ghostpass',
@@ -705,14 +750,14 @@ export const OSS_CONTRIBUTIONS: OSSContribution[] = [
     project: 'StreamFi',
     repo: 'StreamFi-x/streamfi-frontend',
     description:
-      'Contributed to StreamFi — a decentralized streaming and content monetization platform. Frontend contributions to the React/TypeScript application.',
+      'Contributed to StreamFi, a decentralized streaming and content monetization platform. Frontend contributions to the React/TypeScript application.',
     url: 'https://github.com/Sage-senpai/streamfi-frontend',
   },
   {
     project: 'StellarFlow',
     repo: 'StellarFlow-Network/stellarflow-frontend',
     description:
-      'Contributed to StellarFlow — a Stellar network application frontend. Code contributions to the TypeScript-based UI.',
+      'Contributed to StellarFlow, a Stellar network application frontend. Code contributions to the TypeScript-based UI.',
     url: 'https://github.com/Sage-senpai/stellarflow-frontend',
   },
 ];
@@ -720,21 +765,21 @@ export const OSS_CONTRIBUTIONS: OSSContribution[] = [
 // ── EVENTS ──────────────────────────────────────────────────────────────────
 
 export const EVENTS: EventEntry[] = [
-  { year: 2026, name: 'Avalanche Team1 — BlockHive, UNN', role: 'Speaker', attendees: 50, image: '/avalanche-team1-speaker.png' },
-  { year: 2026, name: 'Boundless Hackathon — BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/boundless-hackathon.png' },
-  { year: 2026, name: 'DevPack Hackathon — BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/devpack-hackathon.png' },
+  { year: 2026, name: 'Avalanche Team1: BlockHive, UNN', role: 'Speaker', attendees: 50, image: '/avalanche-team1-speaker.png' },
+  { year: 2026, name: 'Boundless Hackathon: BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/boundless-hackathon.png' },
+  { year: 2026, name: 'DevPack Hackathon: BlockHive, UNN', role: 'Hacker', attendees: 50, image: '/devpack-hackathon.png' },
   { year: 2026, name: '0G Network Hackathon', role: 'ETF Hackathon Competitor', attendees: 1000, image: '/0G-hackathon.jpg' },
   { year: 2026, name: '0G Ecosystem Onboarding', role: 'Developer Onboarding Lead', attendees: 300, image: '/0G-onboarding.jpg' },
-  { year: 2025, name: 'Polkadot Developer Workshop', role: 'Workshop Lead — Substrate & XCM', attendees: 200, image: '/polkadot-dev.jpg' },
+  { year: 2025, name: 'Polkadot Developer Workshop', role: 'Workshop Lead: Substrate & XCM', attendees: 200, image: '/polkadot-dev.jpg' },
   { year: 2025, name: 'Polkadot Road to sub0 Meetup', role: 'Builder Representative', attendees: 300, image: '/road-2-sub0.jpg' },
-  { year: 2025, name: 'Sui Ecosystem Builder Network', role: 'Community Builder — SE Nigeria', attendees: 120, image: '/sui-meetup-group.jpg' },
+  { year: 2025, name: 'Sui Ecosystem Builder Network', role: 'Community Builder: SE Nigeria', attendees: 120, image: '/sui-meetup-group.jpg' },
   { year: 2025, name: 'Move Language Workshop Series', role: 'Co-Lead Instructor', attendees: 100, image: '/sui-meetup-group-1.jpg' },
-  { year: 2025, name: 'Community Builder Events', role: 'Multi-event Organizer — Nsukka', attendees: 250 },
+  { year: 2025, name: 'Community Builder Events', role: 'Multi-event Organizer: Nsukka', attendees: 250 },
   { year: 2024, name: '2-Day Capacity Building Workshop', role: 'IoT & Smart Agriculture Lead', attendees: 80, image: '/workshop.jpg' },
   { year: 2024, name: 'NVIDIA × UNN AI Workshop', role: 'GPU Deep Learning Participant', attendees: 200, image: '/nivida-workshop.jpg' },
   { year: 2024, name: 'World Bitcoin Pizza Day', role: 'Community Organizer', attendees: 150, image: '/bitcoin-pizza-day.jpg' },
   { year: 2024, name: 'Engineering Projects Showcase', role: 'DeFi & dApp Presenter', attendees: 400 },
-  { year: 2023, name: 'Smart Irrigation System Demo', role: 'IoT Engineer — Arduino & Sensors', attendees: 60, image: '/smart-irigation-system.jpg' },
+  { year: 2023, name: 'Smart Irrigation System Demo', role: 'IoT Engineer: Arduino & Sensors', attendees: 60, image: '/smart-irigation-system.jpg' },
 ];
 
 // ── SKILLS ──────────────────────────────────────────────────────────────────
@@ -801,16 +846,16 @@ export const PROFILE = {
   name: 'Anyadike Divine',
   role: 'Full Stack Web3 Engineer · Smart Contract Developer · Community Manager',
   location: 'Nsukka, Nigeria',
-  email: 'anyadikedivine@gmail.com',
+  email: 'anyadikedivine0@gmail.com',
   twitter: 'sage_senpeak',
   github: 'Sage-senpai',
   linkedin: 'anyadikedivine',
   portfolio: 'https://portfolio-dvyne.vercel.app',
   profileImage: '/profile.jpg',
-  bio: 'Full stack Web3 engineer shipping production-grade applications end-to-end — frontend, backend, and smart contracts. 27+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Lead developer on client builds including an 11-industry client demo system. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
+  bio: 'Full stack Web3 engineer shipping production-grade applications end to end: frontend, backend, and smart contracts. 27+ projects across Polkadot, Solana, 0G, Stellar, Mandala, Mantle, and Pacifica ecosystems. Lead developer on client builds including a 19-industry client demo system. Active community manager, technical writer, hackathon competitor, and ecosystem ambassador bridging Nigerian developers with global Web3 opportunities.',
   aboutParagraphs: [
-    'I build full stack — frontend, backend, smart contracts, and everything in between. My work spans creating complete decentralized applications end-to-end, writing on-chain protocols, deploying production infrastructure, and fostering builder communities across multiple blockchain ecosystems.',
-    'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar — I ship real products that solve real problems. I also build for clients: an 11-industry demo system showcasing full-stack versatility across restaurant, airport, resort, SaaS, and more. Every project you see is live, deployed, and functional.',
+    'I build full stack: frontend, backend, smart contracts, and everything in between. My work spans creating complete decentralized applications end to end, writing on-chain protocols, deploying production infrastructure, and growing builder communities across multiple blockchain ecosystems.',
+    'From DeFi staking platforms and NFT marketplaces on Polkadot, to AI-powered dApps on 0G Network, to developer tooling on Stellar, I ship real products that solve real problems. I also build for clients: a 19-industry demo system showcasing full-stack versatility across restaurant, airport, resort, SaaS, and more. Every project you see is live, deployed, and functional.',
     'Beyond code, I lead developer workshops, organize ecosystem meetups across Nigeria, produce technical content that reaches thousands, and actively contribute to open source. I believe the best builders are the ones who also teach.',
   ],
 };
@@ -824,7 +869,7 @@ export const EXPERIENCES: Experience[] = [
     duration: '2024 – Present',
     type: null,
     impact:
-      'Lead developer on an 11-industry client demo system showcasing full-stack versatility across restaurant, airport, resort, delivery, school, SaaS, tech company, construction, beauty salon, coworking, and fitness — each with its own design system, routing, forms, and animations.',
+      'Lead developer on a 19-industry client demo system showcasing full-stack versatility across restaurant, airport, resort, delivery, school, SaaS, tech, construction, beauty, coworking, fitness, real estate, e-commerce, healthcare, fintech, marketing, agritech, insurance, and consulting, each with its own design system, routing, forms, and animations.',
   },
   {
     role: 'Full Stack Web3 Developer & Ecosystem Builder',
@@ -856,7 +901,7 @@ export const EXPERIENCES: Experience[] = [
     duration: '2026 – Present',
     type: null,
     impact:
-      'Built Stellar Suite — a complete Soroban smart contract development toolkit — and ChainVerse, a decentralized Web3 education platform with crypto payments, NFT certifications, and DAO governance.',
+      'Built Stellar Suite, a complete Soroban smart contract development toolkit, and ChainVerse, a decentralized Web3 education platform with crypto payments, NFT certifications, and DAO governance.',
   },
   {
     role: 'Hackathon Competitor & Workshop Lead',
@@ -919,6 +964,17 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'D3.js / Recharts', tier: 'secondary' },
       { name: 'Arduino / IoT', tier: 'secondary' },
       { name: 'Figma', tier: 'secondary' },
+    ],
+  },
+  {
+    category: 'Backend & Systems',
+    items: [
+      { name: 'Node.js / Hono', tier: 'primary' },
+      { name: 'Prisma / PostgreSQL', tier: 'primary' },
+      { name: 'REST APIs & JWT Auth', tier: 'primary' },
+      { name: 'Tauri (Desktop Apps)', tier: 'secondary' },
+      { name: 'Rust', tier: 'secondary' },
+      { name: 'Windows Services & IPC', tier: 'secondary' },
     ],
   },
 ];

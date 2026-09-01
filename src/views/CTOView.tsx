@@ -195,7 +195,7 @@ export default function CTOView({ onBack }: Props) {
         '  Started with React & TypeScript, evolved into a full-stack',
         '  engineer owning frontend, backend, smart contracts, and',
         '  deployment. Lead developer on client builds including an',
-        '  11-industry demo system (React 19 + Vite). Core contributor',
+        '  19-industry demo system (React 19 + Vite). Core contributor',
         '  to the Polkadot ecosystem with 27+ shipped projects across',
         '  7+ chains.',
         '',
