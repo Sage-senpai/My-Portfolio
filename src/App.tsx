@@ -1,6 +1,6 @@
 // ============================================================================
 // FILE: src/App.tsx
-// DESCRIPTION: Adaptive Portfolio System — view router with AnimatePresence
+// DESCRIPTION: Adaptive Portfolio System, view router with AnimatePresence
 // ============================================================================
 
 import { useState } from 'react';
@@ -36,13 +36,11 @@ const transition = {
 
 function App() {
   const [view, setView] = useState<ViewId | null>(null);
-  const [bentoDemo, setBentoDemo] = useState(
-    () => new URLSearchParams(window.location.search).has('bento'),
-  );
+  const [showBento, setShowBento] = useState(true);
   const CurrentView = view ? viewMap[view] : null;
 
-  if (bentoDemo) {
-    return <BentoLandingView onExit={() => setBentoDemo(false)} />;
+  if (showBento) {
+    return <BentoLandingView onExit={() => setShowBento(false)} />;
   }
 
   return (

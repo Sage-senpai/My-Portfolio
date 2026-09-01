@@ -1,7 +1,9 @@
 // ============================================================================
 // FILE: src/views/BentoLandingView.tsx
-// DESCRIPTION: Bento-grid landing page redesign, DEMO / preview only.
-// Reachable at ?bento=1, not wired into the live identity-selector flow.
+// DESCRIPTION: Bento-grid landing page, the default homepage.
+// "Back to adaptive portfolio" drops into the original multi-persona
+// selector (VC, CTO, Client, Ambassador, Event, Full Portfolio) for anyone
+// who wants that view instead.
 // ============================================================================
 
 import { useEffect, useState } from 'react';
